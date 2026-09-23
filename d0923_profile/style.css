@@ -1,0 +1,944 @@
+/* =========================================================
+   BASIC
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+
+    background: #020403;
+
+    color: #e6e9e6;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans KR",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================================
+   MATRIX BACKGROUND
+========================================================= */
+
+#matrix {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -2;
+}
+
+
+/*
+    Matrix 배경이 너무 밝아져서
+    본문 가독성을 해치지 않도록
+    검은 오버레이를 한 겹 추가한다.
+*/
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.85)
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 68px;
+
+    padding: 0 48px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        auto
+        1fr;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.80);
+
+    border-bottom:
+        1px solid rgba(0, 255, 65, 0.22);
+
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+}
+
+
+.header a {
+    text-decoration: none;
+}
+
+
+.header-logo {
+    justify-self: start;
+
+    color: #f1f4f1;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 0.05em;
+
+    transition: color 0.2s ease;
+}
+
+
+.header-logo:hover {
+    color: #00ff41;
+}
+
+
+.header-name {
+    justify-self: center;
+
+    color: #d3d8d3;
+
+    font-size: 15px;
+
+    letter-spacing: 0.08em;
+}
+
+
+.header-contact {
+    justify-self: end;
+
+    padding: 9px 14px;
+
+    color: #00ff41;
+
+    border:
+        1px solid rgba(0, 255, 65, 0.55);
+
+    border-radius: 3px;
+
+    font-size: 13px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.header-contact:hover {
+    color: #000;
+
+    background: #00ff41;
+
+    box-shadow:
+        0 0 18px rgba(0, 255, 65, 0.45);
+}
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page-container {
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        118px
+        100px
+        80px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+}
+
+
+/* =========================================================
+   PAPER
+========================================================= */
+
+.paper {
+    position: relative;
+
+    width: min(760px, 100%);
+
+    min-height: 1020px;
+
+    padding:
+        72px
+        76px;
+
+    /*
+        흰 A4 대신 어두운 종이 느낌.
+        배경과는 구분되면서도 전체 Matrix 분위기를 유지한다.
+    */
+    background: #1b1f1c;
+
+    color: #e6e9e6;
+
+    border:
+        1px solid rgba(0, 255, 65, 0.12);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.75),
+        0 0 30px rgba(0, 255, 65, 0.06);
+
+    overflow: hidden;
+}
+
+
+/*
+    아주 약한 종이 질감
+*/
+.paper::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.10;
+
+    background-image:
+        radial-gradient(
+            rgba(255, 255, 255, 0.08) 0.5px,
+            transparent 0.5px
+        );
+
+    background-size:
+        4px 4px;
+}
+
+
+/*
+    실제 콘텐츠가 paper::before보다 위로 오도록
+*/
+.paper > * {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   DOCUMENT COMMON
+========================================================= */
+
+.document-label {
+    margin: 0 0 12px;
+
+    color: #8d978f;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 0.18em;
+}
+
+
+.document-header h1 {
+    margin: 0;
+
+    color: #f1f4f1;
+
+    font-size: 34px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.03em;
+}
+
+
+.document-subtitle {
+    margin-top: 10px;
+
+    color: #98a099;
+
+    font-size: 15px;
+}
+
+
+.resume-section,
+.introduction-section {
+    margin-top: 58px;
+}
+
+
+.resume-section h2,
+.introduction-section h2 {
+    margin: 0;
+
+    color: #eef2ee;
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.section-line {
+    width: 100%;
+
+    height: 1px;
+
+    margin: 12px 0 24px;
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+.home-paper {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.home-content {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.home-content h1 {
+    margin: 0;
+
+    color: #f2f5f2;
+
+    font-size: 42px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+}
+
+
+.job-title {
+    margin-top: 10px;
+
+    color: #9ca59d;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 17px;
+}
+
+
+.home-line {
+    width: 42px;
+
+    height: 1px;
+
+    margin: 32px auto;
+
+    background:
+        rgba(255, 255, 255, 0.25);
+}
+
+
+.home-description {
+    margin:
+        0 0
+        18px;
+
+    color: #d9ded9;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+}
+
+
+.home-description.sub {
+    color: #929b94;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   RESUME
+========================================================= */
+
+.experience {
+    margin-top: 28px;
+}
+
+
+.experience-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.experience-header h3 {
+    margin: 0 0 4px;
+
+    color: #edf1ed;
+
+    font-size: 16px;
+}
+
+
+.experience-header p {
+    margin: 0;
+
+    color: #929b94;
+
+    font-size: 13px;
+}
+
+
+.experience-header span {
+    color: #929b94;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+.experience-description {
+    margin-top: 20px;
+
+    color: #c7cdc8;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skill-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap:
+        10px
+        12px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.skill-list li {
+    padding:
+        7px
+        11px;
+
+    border:
+        1px solid rgba(0, 255, 65, 0.22);
+
+    background: #232824;
+
+    color: #dce3dd;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.skill-list li:hover {
+    border-color:
+        rgba(0, 255, 65, 0.65);
+
+    background: #263128;
+
+    color: #aaffbc;
+}
+
+
+/* =========================================================
+   PROJECT
+========================================================= */
+
+.project {
+    margin-bottom: 28px;
+}
+
+
+.project h3 {
+    margin:
+        0 0
+        10px;
+
+    color: #edf1ed;
+
+    font-size: 15px;
+}
+
+
+.project p {
+    margin: 0;
+
+    color: #c7cdc8;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DOCUMENT LINK
+========================================================= */
+
+.document-link {
+    color: #80ff9c;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    text-decoration: underline;
+
+    text-underline-offset: 4px;
+
+    transition:
+        color 0.2s ease,
+        text-shadow 0.2s ease;
+}
+
+
+.document-link:hover {
+    color: #00ff41;
+
+    text-shadow:
+        0 0 10px rgba(0, 255, 65, 0.45);
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.introduction-section p {
+    margin:
+        0 0
+        18px;
+
+    color: #c9ceca;
+
+    font-size: 15px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.document-navigation {
+    position: fixed;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    display: flex;
+
+    gap: 12px;
+
+    z-index: 500;
+}
+
+
+/*
+    문서 폭 760px
+    절반 = 380px
+
+    문서 끝에서 약 55px 떨어진 위치에 버튼 배치
+*/
+.navigation-left {
+    right:
+        calc(50% + 435px);
+
+    flex-direction:
+        row-reverse;
+}
+
+
+.navigation-right {
+    left:
+        calc(50% + 435px);
+}
+
+
+.nav-button {
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #00ff41;
+
+    background:
+        rgba(0, 0, 0, 0.82);
+
+    border:
+        1px solid rgba(0, 255, 65, 0.75);
+
+    border-radius: 50%;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 0 8px rgba(0, 255, 65, 0.14);
+
+    transition:
+        transform 0.18s ease,
+        background 0.18s ease,
+        color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+
+.nav-button:hover {
+    color: #000;
+
+    background: #00ff41;
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 22px rgba(0, 255, 65, 0.60);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+/*
+    Chromium 계열 브라우저에서
+    전체 컨셉에 맞게 scrollbar를 어둡게 처리
+*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #050705;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #283028;
+
+    border-radius: 10px;
+
+    border: 2px solid #050705;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #354036;
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+========================================================= */
+
+::selection {
+    color: #000;
+
+    background: #00ff41;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .page-container {
+        padding-left: 90px;
+
+        padding-right: 90px;
+    }
+
+
+    /*
+        화면이 좁아지면
+        버튼을 문서 기준 위치가 아니라
+        viewport 좌우에 고정한다.
+    */
+
+    .navigation-left {
+        left: 18px;
+
+        right: auto;
+
+        flex-direction: column;
+    }
+
+
+    .navigation-right {
+        left: auto;
+
+        right: 18px;
+
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .header {
+        padding:
+            0
+            18px;
+
+        grid-template-columns:
+            1fr
+            1fr;
+    }
+
+
+    .header-name {
+        display: none;
+    }
+
+
+    .header-logo {
+        font-size: 14px;
+    }
+
+
+    .header-contact {
+        padding:
+            8px
+            10px;
+
+        font-size: 12px;
+    }
+
+
+    .page-container {
+        padding:
+            95px
+            65px
+            50px;
+    }
+
+
+    .paper {
+        min-height:
+            calc(100vh - 140px);
+
+        padding:
+            50px
+            35px;
+    }
+
+
+    .home-content h1 {
+        font-size: 34px;
+    }
+
+
+    .document-header h1 {
+        font-size: 29px;
+    }
+
+
+    .experience-header {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .nav-button {
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 15px;
+    }
+
+
+    .navigation-left {
+        left: 10px;
+    }
+
+
+    .navigation-right {
+        right: 10px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .page-container {
+        padding:
+            90px
+            52px
+            40px;
+    }
+
+
+    .paper {
+        padding:
+            42px
+            26px;
+    }
+
+
+    .home-content h1 {
+        font-size: 29px;
+    }
+
+
+    .job-title {
+        font-size: 14px;
+    }
+
+
+    .home-description {
+        font-size: 15px;
+    }
+
+
+    .resume-section,
+    .introduction-section {
+        margin-top: 44px;
+    }
+
+
+    .introduction-section p,
+    .experience-description,
+    .project p {
+        font-size: 13px;
+    }
+
+
+    .skill-list {
+        gap: 8px;
+    }
+
+
+    .navigation-left {
+        left: 6px;
+    }
+
+
+    .navigation-right {
+        right: 6px;
+    }
+
+
+    .nav-button {
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 13px;
+    }
+
+}

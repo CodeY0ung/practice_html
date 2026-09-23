@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>THE MATRIX | 매트릭스</title>
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #020403;
+            color: #ffffff;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                "Noto Sans KR",
+                sans-serif;
+
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================================================
+           MATRIX CANVAS
+        ========================================================= */
+
+        #matrix {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: -5;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 76px;
+
+            padding: 0 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.92),
+                    rgba(0,0,0,0.35)
+                );
+
+            backdrop-filter: blur(8px);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            color: #00ff66;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 21px;
+            font-weight: 900;
+
+            letter-spacing: 0.18em;
+
+            text-shadow:
+                0 0 10px rgba(0,255,102,0.6);
+        }
+
+        .nav {
+            display: flex;
+            gap: 36px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            letter-spacing: 0.08em;
+        }
+
+        .nav a {
+            color: #b8c0ba;
+
+            transition: 0.2s;
+        }
+
+        .nav a:hover {
+            color: #00ff66;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+
+            min-height: 100vh;
+
+            padding:
+                125px
+                9%
+                70px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        /*
+            포스터 이미지를 확대해서
+            영화 배경 이미지처럼 사용
+        */
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                url("images/매트릭스_포스터.jpg")
+                center
+                32%
+                /
+                cover
+                no-repeat;
+
+            filter:
+                blur(18px)
+                brightness(0.24)
+                saturate(0.65);
+
+            transform: scale(1.14);
+
+            z-index: -4;
+        }
+
+
+        /*
+            배경을 자연스럽게 검게 눌러준다.
+        */
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.95) 0%,
+                    rgba(0,0,0,0.82) 36%,
+                    rgba(0,0,0,0.50) 65%,
+                    rgba(0,0,0,0.85) 100%
+                ),
+                linear-gradient(
+                    to bottom,
+                    transparent 60%,
+                    #020403 100%
+                );
+
+            z-index: -3;
+        }
+
+
+        .hero-content {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.2fr)
+                minmax(270px, 400px);
+
+            gap: 100px;
+
+            align-items: center;
+
+            max-width: 1320px;
+
+            margin: auto;
+        }
+
+
+        /* =========================================================
+           HERO TEXT
+        ========================================================= */
+
+        .eyebrow {
+            margin-bottom: 22px;
+
+            color: #00ff66;
+
+            font-family: "Courier New", monospace;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            letter-spacing: 0.22em;
+        }
+
+
+        .title {
+            font-size: clamp(60px, 8vw, 126px);
+
+            font-weight: 900;
+
+            line-height: 0.82;
+
+            letter-spacing: -0.075em;
+
+            color: #f5fff8;
+
+            text-shadow:
+                0 0 40px rgba(0,255,102,0.10);
+        }
+
+
+        .title span {
+            display: block;
+
+            color: transparent;
+
+            -webkit-text-stroke:
+                1px rgba(0,255,102,0.80);
+
+            text-shadow:
+                0 0 28px rgba(0,255,102,0.18);
+        }
+
+
+        .tagline {
+            margin-top: 40px;
+
+            max-width: 650px;
+
+            color: #d5dbd6;
+
+            font-size: 21px;
+            font-weight: 500;
+
+            line-height: 1.75;
+        }
+
+
+        .tagline strong {
+            color: #00ff66;
+        }
+
+
+        .movie-meta {
+            margin-top: 24px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 10px;
+        }
+
+
+        .movie-meta span {
+            padding: 7px 12px;
+
+            border:
+                1px solid rgba(0,255,102,0.25);
+
+            background:
+                rgba(0,0,0,0.45);
+
+            color: #aeb8b0;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .actions {
+            margin-top: 44px;
+
+            display: flex;
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            min-width: 160px;
+
+            padding:
+                15px
+                24px;
+
+            border-radius: 2px;
+
+            border:
+                1px solid rgba(0,255,102,0.55);
+
+            cursor: pointer;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition:
+                0.25s ease;
+        }
+
+
+        .btn-primary {
+            background: #00ff66;
+
+            color: #001307;
+
+            box-shadow:
+                0 0 26px rgba(0,255,102,0.15);
+        }
+
+
+        .btn-primary:hover {
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 0 36px rgba(0,255,102,0.40);
+        }
+
+
+        .btn-secondary {
+            background:
+                rgba(0,0,0,0.45);
+
+            color: #00ff66;
+        }
+
+
+        .btn-secondary:hover {
+            background:
+                rgba(0,255,102,0.10);
+
+            box-shadow:
+                0 0 24px rgba(0,255,102,0.15);
+        }
+
+
+        /* =========================================================
+           POSTER
+        ========================================================= */
+
+        .poster-area {
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .poster-glow {
+            position: absolute;
+
+            width: 85%;
+            height: 90%;
+
+            top: 10%;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                rgba(0,255,102,0.16);
+
+            filter:
+                blur(60px);
+
+            z-index: -1;
+        }
+
+
+        .poster {
+            width: 100%;
+            max-width: 360px;
+
+            display: block;
+
+            border:
+                1px solid rgba(0,255,102,0.42);
+
+            box-shadow:
+                0 35px 90px rgba(0,0,0,0.80),
+                0 0 30px rgba(0,255,102,0.14);
+
+            transition:
+                transform 0.5s ease,
+                box-shadow 0.5s ease;
+        }
+
+
+        .poster:hover {
+            transform:
+                perspective(900px)
+                rotateY(-4deg)
+                translateY(-8px);
+
+            box-shadow:
+                20px 40px 100px rgba(0,0,0,0.90),
+                0 0 45px rgba(0,255,102,0.25);
+        }
+
+
+        /* =========================================================
+           SECTION COMMON
+        ========================================================= */
+
+        .section {
+            position: relative;
+
+            padding:
+                120px
+                9%;
+
+            background:
+                rgba(2,4,3,0.94);
+        }
+
+
+        .section-inner {
+            max-width: 1200px;
+
+            margin: auto;
+        }
+
+
+        .section-label {
+            margin-bottom: 14px;
+
+            color: #00ff66;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 0.2em;
+        }
+
+
+        .section-title {
+            max-width: 800px;
+
+            font-size: clamp(35px, 5vw, 62px);
+
+            line-height: 1.1;
+
+            letter-spacing: -0.045em;
+        }
+
+
+        /* =========================================================
+           STORY
+        ========================================================= */
+
+        .story-grid {
+            margin-top: 55px;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 70px;
+        }
+
+
+        .story-main {
+            color: #d0d6d2;
+
+            font-size: 18px;
+
+            line-height: 2;
+        }
+
+
+        .story-main strong {
+            color: #00ff66;
+        }
+
+
+        .story-side {
+            padding-left: 28px;
+
+            border-left:
+                1px solid rgba(0,255,102,0.30);
+        }
+
+
+        .story-side p {
+            margin-bottom: 23px;
+
+            color: #89938b;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           CHOICE SECTION
+        ========================================================= */
+
+        .choice-section {
+            position: relative;
+
+            padding:
+                150px
+                8%;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,255,102,0.09),
+                    transparent 40%
+                ),
+                #010201;
+        }
+
+
+        .choice-section::before {
+            content: "01001010 01100101 01110011 01110101 01110011";
+
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            transform:
+                translate(-50%, -50%);
+
+            color:
+                rgba(0,255,102,0.025);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10vw;
+
+            white-space: nowrap;
+
+            z-index: 0;
+        }
+
+
+        .choice-content {
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        .choice-title {
+            font-size:
+                clamp(42px, 7vw, 88px);
+
+            letter-spacing: -0.055em;
+
+            line-height: 1;
+        }
+
+
+        .choice-title span {
+            color: #00ff66;
+        }
+
+
+        .choice-text {
+            margin:
+                30px auto 0;
+
+            max-width: 630px;
+
+            color: #9aa49c;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+
+        /* =========================================================
+           FEATURES
+        ========================================================= */
+
+        .features {
+            margin-top: 60px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+
+        .feature {
+            min-height: 220px;
+
+            padding: 30px;
+
+            border:
+                1px solid rgba(0,255,102,0.13);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(18,27,21,0.85),
+                    rgba(4,7,5,0.92)
+                );
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .feature:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(0,255,102,0.55);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.35);
+        }
+
+
+        .feature-number {
+            color: #00ff66;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+        }
+
+
+        .feature h3 {
+            margin-top: 40px;
+
+            font-size: 22px;
+        }
+
+
+        .feature p {
+            margin-top: 14px;
+
+            color: #89928b;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           CAST
+        ========================================================= */
+
+        .cast-line {
+            margin-top: 50px;
+
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+
+        .cast {
+            padding:
+                11px
+                15px;
+
+            border:
+                1px solid #263229;
+
+            color: #b7beb8;
+
+            background: #0b0f0c;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
+
+        .final-cta {
+            padding:
+                140px
+                7%;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #020403,
+                    #00170a
+                );
+        }
+
+
+        .final-cta h2 {
+            font-size:
+                clamp(40px, 6vw, 80px);
+
+            line-height: 1.05;
+
+            letter-spacing: -0.05em;
+        }
+
+
+        .final-cta h2 span {
+            color: #00ff66;
+        }
+
+
+        .final-cta p {
+            margin:
+                28px auto 40px;
+
+            max-width: 570px;
+
+            color: #9da69f;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 30px;
+
+            border-top:
+                1px solid rgba(0,255,102,0.10);
+
+            background: #000;
+
+            color: #4e5951;
+
+            text-align: center;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav {
+                display: none;
+            }
+
+
+            .hero-content {
+                grid-template-columns:
+                    1fr;
+
+                gap: 70px;
+            }
+
+
+            .poster {
+                max-width: 310px;
+            }
+
+
+            .story-grid {
+                grid-template-columns:
+                    1fr;
+
+                gap: 35px;
+            }
+
+
+            .features {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 64px;
+
+                padding:
+                    0
+                    20px;
+            }
+
+
+            .logo {
+                font-size: 17px;
+            }
+
+
+            .hero {
+                padding:
+                    110px
+                    24px
+                    70px;
+            }
+
+
+            .title {
+                font-size: 58px;
+            }
+
+
+            .tagline {
+                font-size: 17px;
+            }
+
+
+            .section {
+                padding:
+                    90px
+                    24px;
+            }
+
+
+            .choice-section {
+                padding:
+                    110px
+                    24px;
+            }
+
+
+            .actions {
+                flex-direction: column;
+            }
+
+
+            .btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MATRIX BACKGROUND
+========================================================= -->
+
+<canvas id="matrix"></canvas>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <a class="logo" href="#">
+        THE MATRIX
+    </a>
+
+    <nav class="nav">
+
+        <a href="#story">
+            STORY
+        </a>
+
+        <a href="#why">
+            WHY MATRIX
+        </a>
+
+        <a href="#cast">
+            CAST
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <!-- LEFT -->
+
+        <div>
+
+            <p class="eyebrow">
+                WAKE UP, NEO_
+            </p>
+
+
+            <h1 class="title">
+
+                THE
+
+                <span>
+                    MATRIX
+                </span>
+
+            </h1>
+
+
+            <p class="tagline">
+
+                당신이 <strong>현실</strong>이라고 믿었던 모든 것이
+                거짓이라면 어떨까?
+
+                <br><br>
+
+                진실을 선택하는 순간,
+                이전의 세계로는 돌아갈 수 없다.
+
+            </p>
+
+
+            <div class="movie-meta">
+
+                <span>
+                    1999
+                </span>
+
+                <span>
+                    SCI-FI
+                </span>
+
+                <span>
+                    ACTION
+                </span>
+
+                <span>
+                    136 MIN
+                </span>
+
+            </div>
+
+
+            <div class="actions">
+
+                <a
+                    class="btn btn-primary"
+                    href="#story">
+
+                    현실의 진실 보기
+
+                </a>
+
+
+                <button
+                    class="btn btn-secondary"
+                    onclick="openTrailer()">
+
+                    ▶ 예고편 찾기
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT POSTER -->
+
+        <div class="poster-area">
+
+            <div class="poster-glow"></div>
+
+            <img
+                class="poster"
+                src="images/매트릭스_포스터.jpg"
+                alt="영화 매트릭스 포스터">
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section
+    class="section"
+    id="story">
+
+    <div class="section-inner">
+
+        <p class="section-label">
+            // THE QUESTION
+        </p>
+
+
+        <h2 class="section-title">
+
+            당신이 살고 있는 세계가
+            진짜라는 증거는 무엇인가?
+
+        </h2>
+
+
+        <div class="story-grid">
+
+            <div class="story-main">
+
+                낮에는 평범한 프로그래머,
+                밤에는 해커로 살아가는 <strong>네오</strong>.
+
+                <br><br>
+
+                그는 설명할 수 없는 위화감을 느끼며
+                세상의 진실을 찾고 있다.
+
+                <br><br>
+
+                그러던 어느 날,
+                정체불명의 남자 모피어스로부터
+                자신의 현실을 완전히 <br>
+                뒤집는 선택을 제안받는다.
+
+                <br><br>
+
+                <strong>
+                    진실을 알 것인가,
+                    아니면 익숙한 현실로 돌아갈 것인가.
+                </strong>
+
+            </div>
+
+
+            <div class="story-side">
+
+                <p>
+                    인간과 기계,
+                    현실과 가상,
+                    자유와 통제의 경계를 뒤흔드는
+                    SF 액션.
+                </p>
+
+                <p>
+                    독창적인 세계관과 철학적 질문,
+                    혁신적인 액션 연출이 결합된 작품.
+                </p>
+
+                <p>
+                    한 번 보고 끝나는 영화가 아니라
+                    다시 볼 때마다 새로운 의미를 발견하게 되는 영화.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CHOICE
+========================================================= -->
+
+<section class="choice-section">
+
+    <div class="choice-content">
+
+        <p class="section-label">
+            // MAKE YOUR CHOICE
+        </p>
+
+
+        <h2 class="choice-title">
+
+            현실에 남을 것인가.<br>
+
+            <span>
+                진실을 볼 것인가.
+            </span>
+
+        </h2>
+
+
+        <p class="choice-text">
+
+            매트릭스는 단순히 미래 세계를 그린 영화가 아니다.
+
+            우리가 무엇을 현실이라고 믿는지,
+            <br>자유로운 선택이 정말 존재하는지 질문한다.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY MATRIX
+========================================================= -->
+
+<section
+    class="section"
+    id="why">
+
+    <div class="section-inner">
+
+        <p class="section-label">
+            // WHY YOU SHOULD WATCH
+        </p>
+
+
+        <h2 class="section-title">
+
+            지금 봐도
+            여전히 미래적인 영화.
+
+        </h2>
+
+
+        <div class="features">
+
+
+            <article class="feature">
+
+                <span class="feature-number">
+                    01
+                </span>
+
+                <h3>
+                    압도적인 세계관
+                </h3>
+
+                <p>
+                    현실이라고 믿어온 세상이
+                    거대한 가상 시스템이라면?
+                    <br>
+                    단순하면서도 강력한 설정이
+                    영화 전체를 끌고 간다.
+                </p>
+
+            </article>
+
+
+            <article class="feature">
+
+                <span class="feature-number">
+                    02
+                </span>
+
+                <h3>
+                    시대를 바꾼 액션
+                </h3>
+
+                <p>
+                    총알을 피하는 장면부터
+                    공간의 법칙을 무시하는 <br>
+                    격투까지. 이후 수많은 작품에 영향을 준 독창적인 <br>
+                    액션을 보여준다.
+                </p>
+
+            </article>
+
+
+            <article class="feature">
+
+                <span class="feature-number">
+                    03
+                </span>
+
+                <h3>
+                    영화가 끝난 뒤 시작되는 질문
+                </h3>
+
+                <p>
+                    자유의지와 통제,
+                    인간과 기술,<br>
+                    현실과 가상의 의미를 묻는다.<br>
+
+                    영화를 본 뒤에도 이야기는 끝나지 않는다.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAST
+========================================================= -->
+
+<section
+    class="section"
+    id="cast">
+
+    <div class="section-inner">
+
+        <p class="section-label">
+            // CAST
+        </p>
+
+
+        <h2 class="section-title">
+
+            Welcome to the real world.
+
+        </h2>
+
+
+        <div class="cast-line">
+
+            <span class="cast">
+                Keanu Reeves — Neo
+            </span>
+
+            <span class="cast">
+                Laurence Fishburne — Morpheus
+            </span>
+
+            <span class="cast">
+                Carrie-Anne Moss — Trinity
+            </span>
+
+            <span class="cast">
+                Hugo Weaving — Agent Smith
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="final-cta">
+
+    <p class="section-label">
+        // SYSTEM MESSAGE
+    </p>
+
+
+    <h2>
+
+        이제 선택은<br>
+
+        <span>
+            당신의 몫이다.
+        </span>
+
+    </h2>
+
+
+    <p>
+
+        지금까지 알고 있던 현실을 의심할 준비가 되었다면,
+        매트릭스의 세계로 들어가라.
+
+    </p>
+
+
+    <button
+        class="btn btn-primary"
+        onclick="openTrailer()">
+
+        ▶ THE MATRIX 보기
+
+    </button>
+
+</section>
+
+
+<footer>
+
+    THE MATRIX EXPERIENCE
+    &nbsp;|&nbsp;
+    FOLLOW THE WHITE RABBIT_
+
+</footer>
+
+
+<script>
+
+    /* =========================================================
+       MATRIX RAIN
+    ========================================================= */
+
+    const canvas =
+        document.getElementById("matrix");
+
+    const ctx =
+        canvas.getContext("2d");
+
+
+    const characters =
+
+        "01アイウエオカキクケコ" +
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        "0123456789{}[]<>/";
+
+
+    const fontSize = 15;
+
+    let columns;
+    let drops;
+
+
+    function resizeMatrix() {
+
+        canvas.width =
+            window.innerWidth;
+
+        canvas.height =
+            window.innerHeight;
+
+
+        columns =
+            Math.floor(
+                canvas.width /
+                fontSize
+            );
+
+
+        drops =
+            Array(columns)
+            .fill(1)
+            .map(
+                () =>
+                    Math.random() *
+                    canvas.height /
+                    fontSize
+            );
+
+    }
+
+
+    function drawMatrix() {
+
+        ctx.fillStyle =
+            "rgba(0, 0, 0, 0.08)";
+
+
+        ctx.fillRect(
+            0,
+            0,
+            canvas.width,
+            canvas.height
+        );
+
+
+        ctx.fillStyle =
+            "rgba(0, 255, 90, 0.35)";
+
+
+        ctx.font =
+            fontSize +
+            "px monospace";
+
+
+        for (
+            let i = 0;
+            i < drops.length;
+            i++
+        ) {
+
+            const text =
+
+                characters.charAt(
+                    Math.floor(
+                        Math.random() *
+                        characters.length
+                    )
+                );
+
+
+            ctx.fillText(
+
+                text,
+
+                i * fontSize,
+
+                drops[i] *
+                fontSize
+
+            );
+
+
+            if (
+
+                drops[i] *
+                fontSize >
+                canvas.height &&
+
+                Math.random() >
+                0.975
+
+            ) {
+
+                drops[i] = 0;
+
+            }
+
+
+            drops[i]++;
+
+        }
+
+    }
+
+
+    resizeMatrix();
+
+
+    window.addEventListener(
+        "resize",
+        resizeMatrix
+    );
+
+
+    setInterval(
+        drawMatrix,
+        48
+    );
+
+
+    /* =========================================================
+       TRAILER
+    ========================================================= */
+
+    function openTrailer() {
+
+        window.open(
+            "https://www.youtube.com/results?search_query=The+Matrix+1999+official+trailer",
+            "_blank"
+        );
+
+    }
+
+</script>
+
+
+</body>
+</html>

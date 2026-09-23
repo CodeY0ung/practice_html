@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 블록형 태그를 나란히 쓸 수 없을까? -->
+     <!-- flex라는 css를 사용하는게 요즘 일반적임 -->
+      <!-- 옛날에는 table이라는 표를 만들었음. 아직도 많이들 쓴다. -->
+    <div>Table 만들기</div>
+
+    <hr>
+    <div>
+        <table border = "1">
+            <tr>
+                <th>시간|요일</th>
+                <th>목요일</th>
+                <th>금요일</th>
+                <th>토요일</th>
+            </tr>
+            <tr>
+                <th>오전</th>
+                <td><img src="images/맑음.jpg"></td>
+                <td><img src="images/구름과 해.jpg"></td>
+                <td><img src="images/구름.jpg"></td>
+            </tr>
+            <tr>
+                <th>오후</th>
+                <td><img src="images/구름과 해.jpg"></td>
+                <td><img src="images/맑음.jpg"></td>
+                <td><img src="images/구름.jpg"></td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">셀1</td>
+                <td>셀2</td>
+                <td colspan="2" rowspan="2" >셀 병합 가능</td>
+            </tr>
+            
+            <tr>
+                <td>셀2</td>
+            </tr>
+        </table>
+    </div>
+    <hr>
+    <div>
+        <ol>
+            <li>순서 의미 있음</li>
+            <li>순서 의미 있음</li>
+            <li>순서 의미 있음</li>
+        </ol>
+
+        <hr>
+
+        <ul>
+            <li>순서 의미 없음</li>
+            <li>순서 의미 없음</li>
+            <li>순서 의미 없음</li>
+        </ul>
+    </div>
+
+    <hr>
+    <h2>Form 만들기</h2>
+    <div>
+        <form action="p1.html" method="get">
+            <input type="text" value="test입니다."readonly/><br>
+            <input type="text" disabled value="사용하지않음."/><br>
+            <input type="text" placeholder="좋아하는 색을 입력하시오." required/><br>
+            <br>취미를 선택하세요 (여러개 선택 가능)<br>
+            <input type = "checkbox" name="hobby" value="reading"/> 독서
+            <input type = "checkbox" name="hobby" value="running"/> 달리기
+            <input type = "checkbox" name="hobby" value="coding"/> 코딩 <br>
+            <br>성별을 선택하세요 (택1)<br>
+            <input type = "radio" name="sex" value="male"/>남
+            <input type = "radio" name="sex" value="female"/>여<br>
+            <textarea minlength="5" maxlength="15" rows="10" cols="20" name="content"></textarea><br>
+            <br>혈액형을 선택하세요 (택1)
+            <select name="blood_type">
+                <option>A</option>
+                <option>B</option>
+                <option value="aaa">O</option>
+                <option>AB</option>
+            </select>
+            <br>
+            <input type = "submit" value="전송">
+        </form>
+    </div>
+</body>
+</html>
