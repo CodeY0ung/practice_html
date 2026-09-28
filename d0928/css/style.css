@@ -1,0 +1,30 @@
+
+        html{
+            font-size: 20px;
+        }
+        /* div가 차지하는 구역의 css */
+        .box{
+            /* border = 테두리 두께 */
+            border: 1px ridge black;
+            width: 100px;
+            height: 100px;
+        }
+        #one{
+            width :200px;
+        }
+        #two{
+            
+            width: 50vh;
+        }
+        #three{
+            
+            width:20vw;
+        }
+        #four{
+            
+            width: 50%;
+        }
+        #parent{
+            width: 600px;
+            border: 1px solid red;
+        }

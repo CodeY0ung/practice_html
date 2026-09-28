@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            height: 100vh;
+        }
+        .item{
+            text-align: center;
+            line-height: 100px;
+            height: 100px;
+        }
+        .item:nth-child(1){
+            flex-grow: 1;
+        }
+        .item:nth-child(2){
+            flex-grow: 2;
+        }
+        .item:nth-child(3){
+            flex-grow: 3;
+        }
+        .one{
+            
+            background-color: aqua;
+        }
+        .two{
+            
+            background-color: beige;
+        }
+        .three{
+            
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item one">1</div>
+        <div class="item two">2</div>
+        <div class="item three">3</div>
+    </div>
+    <div class="container">
+        <div class="item one">2</div>
+        <div class="item two">3</div>
+        <div class="item three">4</div>
+    </div>
+    <div class="container">
+        <div class="item one">2</div>
+        <div class="item two">3</div>
+        <div class="item three">4</div>
+    </div>
+    
+</body>
+</html>

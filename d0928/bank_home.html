@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국산업은행</title>
+    <style>
+
+        .entire-container{
+            height: 100vh;
+            display:flex;
+            flex-direction: column;
+        }
+        section:nth-child(1){
+            flex-grow: 1;
+        }
+        section:nth-child(2){
+            flex-grow: 1;
+        }
+        section:nth-child(3){
+            flex-grow: 4;
+        }
+        section:nth-child(4){
+            flex-grow: 8;
+        }
+        .header-container{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .second-container{
+            display: flex;
+            flex-direction: row;
+        }
+        .ad-container{
+            display: flex;
+            flex-direction: column;
+            line-height: 100vh;
+            text-align: center;
+            align-items: center;
+            background-color:aliceblue;
+        }
+        .fourth-container{
+            display: flex;
+            flex-direction: column;
+            line-height: 100vh;
+            text-align: center;
+        }
+
+        .back-white{
+            background-color: white;
+        }
+        .back-rebe{
+            background-color: rebeccapurple;
+        }
+        body{
+            margin: 0px;
+        }
+        li{
+            list-style-type:none;
+            margin: 5px;
+        }
+        #demo{
+            visibility: hidden;
+        }
+        .header-container a{
+            color: white;
+        }
+        .second-container a{
+            color: black;
+        }
+        .paging-section{
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+</head>
+<body>
+    <div class="entire-container">
+
+        <section class="header-container back-rebe">
+            <ul class="header-container back-rebe">
+                <li><input type="submit" value="검색"></li>
+                <li><input type="text"></input></li>
+                <li><a href="">ENG</a></li>
+                <li><a href="">인증센터</a></li>
+                <li><a href="">고객센터</a></li>
+            </ul>
+        </section>
+        <section>
+            <ul class="second-container">
+                <li><a href="">한국산업은행</a></li>
+                <li><a href="">개인뱅킹</a></li>
+                <li><a href="">기업뱅킹</a></li>
+                <li><a href="">금융상품물</a></li>
+                <li><a href="">퇴직연금</a></li>
+                <li><a href="">기업금융정보</a></li>
+                <li><a href="">은행소개</a></li>
+                <li id="demo">공백</li>
+                <li id="demo">공백</li>
+                <li><a href="">로그인</a></li>
+                <li><a href="">메뉴</a></li>
+
+            </ul>
+        </section>
+        <section class="ad-container">
+            언제나 고객과 함께합니다.
+            <section>
+                <ul class="paging-section">
+                    <li><a href="">←</a></li>
+                    <li>01/08</li>
+                    <li><a href="">→</a></li>
+                    <li><a href="">▢</a></li>
+                </ul>
+            </section>
+        </section>
+        <section class="back-white fourth-container">
+            이거는
+        </section>
+    </div>
+    
+</body>
+</html>

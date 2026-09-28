@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        아래 자식 div 3개에 width, height 크기를 100px로 설정하시오.
+        div 안의 텍스트 크기를 32px로 설정하시오.(px 사용하지 않기).
+        텍스트는 세로 가운데 정렬을 하시오.(line-heignt 속성 사용).
+        테두리는 1px, 실선, 검정색으로 설정하고, 요소의 크기에 선두께가 포함되게 하시오.
+        1번 div는 파란색, 2번 div는 노란색, 3번 div는 초록색으로 배경색을 설정하시오.
+        */
+        .one{
+            background-color: blue;
+        }
+        .two{
+            background-color: yellow;
+        }
+        .three{
+            background-color: green;
+        }
+        .item{
+            border: 1px solid black;
+            font-size: 2rem;
+            width: 100px;
+            height: 100px;
+            /* 높이하고 같은 값을 주면 세로 가운데 정렬이 됨 */
+            line-height: 100px;
+            text-align: center;
+            /* 테두리가 size에 포함된다. */
+            box-sizing: border-box;
+        }
+        .box{
+            border: 1px solid black;
+            font-size: 2rem;
+            width: 100px;
+            height: 100px;
+            /* 높이하고 같은 값을 주면 세로 가운데 정렬이 됨 */
+            line-height: 100px;
+            text-align: center;
+            /* 테두리가 size에 포함된다. */
+            box-sizing: border-box;
+            /* inline의 특징과 block의 특징을 둘다 갖는다. 크기를 지정할 수도 있고, 가로 배치도 가능하다.*/
+            display: inline-block ;
+        }
+        body{
+            margin: 0px;
+        }
+        /* 마우스 올렸을때 색상 변화 */
+        .item:hover{
+            background-color: pink;
+        }
+        .box:hover{
+            background-color: red;
+        }
+        .box:active{
+            background-color: blueviolet;
+        }
+        #demo{
+            /* 없는걸로 처리*/
+            /* display: none; */
+            /* 숨김 처리. 공간은 차지함. 요소가 보이지 않으니까 hover 처리가 안됨.*/
+            /* visibility: hidden; */
+        }
+
+        /* 타입에 따라서 차별 줄 수 있음 */
+        input[type="text"]{
+            border: 2px solid red;
+        }
+        input:-ms-keyboard-active{
+            background-color: aquamarine;
+        }
+        /* id -> class -> 선택자 순으로 적용됨. */
+        #test{
+            background-color: orange;
+        }
+        .test{
+            background-color: orangered;
+        }
+        p{
+            background-color: palegreen;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <!-- class 여러개 동시에 사용 가능 -->
+        <div class="item one">1</div>
+        <div class="item two">2</div>
+        <div class="item three">3</div>
+    </div>
+    <hr>
+    <div>
+        <div id="demo" class="box">demo</div>
+        <div class="box">box</div>
+    </div>
+    <hr>
+    <div>
+        <form action="post">
+            <input type="text" name="username" placeholder="Input your name..."><br>
+            <input type="password" name="password" placeholder="Input your password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    <hr>
+    <p id="test" class="test">test입니다. id, class, p 중 어떤게 적용될까요?</p>
+</body>
+</html>
