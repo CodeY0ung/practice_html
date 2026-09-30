@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*  - relative는 항상 자신의 원래 위치(static 위치)를 기준으로 이동
+            - 부모의 position 속성과 무관하게 작동
+            - 원래 차지하던 공간은 유지됨(레이아웃이 무너지지 않음)
+            - 포지셔닝 컨텍스트를 생성하여 자식 absolute의 기준이 됨 */
+        .container{
+            width: 400px;
+            height: 300px;
+            background : #fefefe;
+            padding: 20px;
+            border: 2px solid #333;
+        }
+
+        .parent{
+            /* position이 없음 (static) */
+            width: 300px;
+            height: 100px;
+            background: lightblue;
+            margin-bottom: 20px;
+        }
+
+        .relative-box{
+            position: relative;
+            top: 20px;
+            left: 30px;
+
+            width: 180px;
+            height: 60px;
+            background: pink;
+            border: 2px solid red;
+        }
+
+        .absolute-box{
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            right: 30px;
+            width: 180;
+            height: 60px;
+            background: lightgreen;
+            border: 2px solid green;
+        }
+
+    </style>
+</head>
+<body>0
+    <div class="container">
+        <div class="parent">
+            부모(position:static)
+            <div class="relative-box">
+                relative - 자신의 원래 위치 기준
+            </div>
+        </div>
+
+        <div class="parent" style="position:relative">
+            부모 (position: relative)
+            <div class="absolute-box">
+                absolute - 부모(position:relative) 기준
+            </div>
+        </div>
+    </div>
+</body>
+</html>

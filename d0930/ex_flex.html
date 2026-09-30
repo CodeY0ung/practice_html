@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            /* flex는 부모만 건드려주면 됨. */
+            width: 80vw;
+            background-color: orange;
+            border: 1px solid black;
+            display: flex;
+            flex-direction: row;
+            /* 주축 방향으로 가운데 정렬 */
+            justify-content: center;
+            /* 교차축 방향으로 가운데 정렬 */
+            align-items: center;
+            height: 400px;
+            margin: 0 auto;
+            /* 화면을 줄이면 안에 요소들이 다음 줄로 넘어감 */
+            flex-wrap: wrap;
+            /* 화면을 줄이면 안에 요소들의 넓이가 줄어드는데, 그걸 방지하는거임 */
+            min-width: 250px;
+            gap: 20px;
+            padding: 10px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .box1{
+            width: 200px;
+            height: 400px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>제목</h1>
+    <hr>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+</html>

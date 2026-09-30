@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* border: 1px solid black; */
+        }
+        .product-main{
+            width: 1200px;
+            margin: 80px auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .product-image img{
+            width: 100%;
+        }
+
+        .product-info{
+            text-align: left;
+            position: relative;
+            top: -10px;
+        }
+        .product-info h1{
+            font-style: italic;
+            margin: 0px;
+        }
+        .product-info .subtitle{
+            font-style: italic;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <section class="product-main">
+
+        <div class="product-image">
+            <img src="img/items/cheeze.png" alt="바스크 번트 치즈케이크">
+        </div>
+
+        <div class="product-info">
+            <h1>바스크 번트 치즈케이크</h1>
+
+            <p class="subtitle">
+                진하게 구워낸 겉면과 부드러운 크림치즈의 깊은 풍미. <br><br>
+
+                01 <br>
+                좋은 재료 <br><br>
+
+                엄선한 크림치즈와 <br>
+                신선한 원재료를 사용합니다. <br><br><br>
+
+
+                02 <br>
+                진한 풍미 <br><br>
+
+                높은 온도에서 짧게 구워 <br>
+                바스크 치즈케이크 특유의 <br>
+                깊은 풍미를 살렸습니다. <br><br><br>
+
+
+                03 <br>
+                부드러운 식감 <br><br>
+
+                겉은 진하게 구워내고 <br>
+                속은 촉촉하고 크리미하게 <br>
+                완성했습니다.
+            </p>
+
+            <h2>32,000원</h2>
+
+            <p>500g / 냉장보관</p>
+
+            <div>
+                <input type="submit" value="-">
+                <span>1</span>
+                <input type="submit" value="+">
+            </div>
+
+            <input type="submit" value="구매하기">
+        </div>
+
+    </section>
+    
+</body>
+</html>

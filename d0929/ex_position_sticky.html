@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* stixky가 작동하려면:
+            부모 요소가 뷰포트보다 커야 함(스크롤이 가능해야 함)
+            top, bottom, left, right 중 하나 이상 지정
+            부모 요소에 overflow : visible이어야 함 (기본값) */
+
+            body{
+                margin: 0px;
+                height: 2000px;
+            }
+
+            .wrap{
+                height: 800px;
+                border: 2px solid blue;
+            }
+
+            .sticky-header{
+                position: sticky;
+                top: 20px;
+                background-color: gray;
+                padding: 15px;
+            }
+            /* wrap의 높이가 800px이고, body의 높이가 2000px이므로:
+               .wrap 내부에서 스크롤이 발생하면 헤더가 top:20px 위치에서 고정됨
+               .wrap을 벗어나서 body를 스크롤하면 헤더도 함께 스크롤됨
+               (sticky는 가장 가까운 스크롤 가능한 부모 요소 내에서만 작동) */
+    </style>
+
+</head>
+<body>
+    <div class="wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <header class="sticky-header">
+            스크롤해도 상단에 고정되는 헤더
+        </header>
+        <!-- 더 많은 내용 추가 -->
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </div>
+</body>
+</html>

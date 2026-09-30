@@ -7,43 +7,61 @@
     <style>
 
         .entire-container{
-            height: 100vh;
+            height: 100vw;
             display:flex;
             flex-direction: column;
         }
-        section:nth-child(1){
-            flex-grow: 1;
-        }
-        section:nth-child(2){
-            flex-grow: 1;
-        }
-        section:nth-child(3){
-            flex-grow: 4;
-        }
-        section:nth-child(4){
-            flex-grow: 8;
-        }
         .header-container{
+            height: 30px;
             display: flex;
             flex-direction: row-reverse;
+            
         }
         .second-container{
             display: flex;
             flex-direction: row;
+            height: 50px;
+
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            align-items: center;
         }
         .ad-container{
+            height: 700px;
             display: flex;
             flex-direction: column;
-            line-height: 100vh;
+            line-height: 500px;
             text-align: center;
             align-items: center;
             background-color:aliceblue;
         }
         .fourth-container{
+            height: 900px;
             display: flex;
             flex-direction: column;
-            line-height: 100vh;
+            line-height: 700px;
             text-align: center;
+            background-color: white;
+        }
+        .fifth-container{
+            position: relative;
+            top: -50px;
+            justify-content: center;
+            height: 100px;
+            display: flex;
+            flex-direction: row;
+        }
+        .fifth-item{
+            width: 300px;
+        }
+        .sixth-container{
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            justify-content: center;
         }
 
         .back-white{
@@ -69,6 +87,8 @@
             color: black;
         }
         .paging-section{
+            position: relative;
+            bottom: 200px;
             display: flex;
             flex-direction: row;
         }
@@ -77,8 +97,8 @@
 <body>
     <div class="entire-container">
 
-        <section class="header-container back-rebe">
-            <ul class="header-container back-rebe">
+        <section class="back-rebe">
+            <ul class="header-container">
                 <li><input type="submit" value="검색"></li>
                 <li><input type="text"></input></li>
                 <li><a href="">ENG</a></li>
@@ -88,7 +108,7 @@
         </section>
         <section>
             <ul class="second-container">
-                <li><a href="">한국산업은행</a></li>
+                <li><a href="test.html">한국산업은행</a></li>
                 <li><a href="">개인뱅킹</a></li>
                 <li><a href="">기업뱅킹</a></li>
                 <li><a href="">금융상품물</a></li>
@@ -99,7 +119,6 @@
                 <li id="demo">공백</li>
                 <li><a href="">로그인</a></li>
                 <li><a href="">메뉴</a></li>
-
             </ul>
         </section>
         <section class="ad-container">
@@ -113,10 +132,12 @@
                 </ul>
             </section>
         </section>
-        <section class="back-white fourth-container">
-            이거는
+        <section class="fourth-container">
+            <section class="fifth-container">
+                <div class="fifth-item" style="background-color: blue" ></div>
+                <div class="fifth-item" style="background-color: purple;"></div>
+            </section>
         </section>
     </div>
-    
 </body>
 </html>

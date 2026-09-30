@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            /* 블록형 요소들을 center로 잡을 때 사용 */
+            margin: 0 auto;
+            /* 블록형 요소는 width를 지정해주지않으면 이미 중앙을 잡고 있다고 생각해서 중앙 배치가 안됨. */
+            width: 50vh;
+            text-align: center;
+        }
+        table{
+            /* border를 sharp한 선으로 */
+            border-collapse: collapse;
+            border: 2px solid black;
+            width: 50vw;
+            /* 테이블 안의 값들 가운데 정렬 */
+            text-align: center;
+            /* 블록요소 가운데 정렬 */
+            margin: 10px auto;
+        }
+        th, td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form 중앙 정렬</h1>
+    <hr>
+    <form action="post">
+        <!-- input은 인라인임. text-align -->
+        <input type="text" size="20"><br>
+        <input type="text" size="20"><br>
+        <input type="text" size="20"><br>
+        <input type="text" size="20"><br>
+        <hr>
+        <input type="submit">
+    </form>
+    <hr>
+    <h1>테이블 중앙 정렬</h1>
+    <hr>
+    <table>
+        <tr>
+            <th>no</th>
+            <th>name</th>
+            <th>tel</th>
+            <th>comment</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>010-1111-1111</td>
+            <td>아버지를 아버지라 부르지 못해요.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>임꺽정</td>
+            <td>010-2222-2222</td>
+            <td>세상은 불공평해요.</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

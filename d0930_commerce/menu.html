@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            border: 1px solid black;
+        }
+
+        body{
+            text-align: center;
+            background-color: white;
+            margin: 0;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            gap: 30px;
+        }
+
+        .banner-image{
+            width: 1200px;
+            height: 514px;
+
+            overflow: hidden;
+        }
+
+        .slide-track{
+            display: flex;
+
+            animation: slide 20s infinite;
+        }
+
+        .item-grid{
+            display: grid;
+            grid-template-columns: repeat(3,300px);
+            gap: 50px;
+        }
+        .item > a{
+            width: 100%;
+            height: 100%;
+        }
+
+        .item img{
+            width: 100%;
+            height: 400px;
+            /* transition: 0.2s; */
+        }
+        /* .item img:hover{
+            transform: scale(1.1);
+        } */
+
+        .item{
+            /* background-color: white; */
+            color: black;
+
+            width: 300px;
+            height: 450px;
+
+            font-weight: bold;
+            font-size: 20px;
+            font-style: italic;
+            transition: 0.2s;
+        }
+
+        .item:hover{
+            transform: scale(1.1);
+        }
+
+        .slide-track > img{
+            width: 1200px;
+            height: 514px;
+
+            flex-shrink: 0;
+
+            object-fit: cover;
+        }
+
+        @keyframes slide{
+            0%, 15%{
+                transform: translateX(0);
+            }
+
+            20%, 35%{
+                transform: translateX(-1200px);
+            }
+
+            40%, 55%{
+                transform: translateX(-2400px);
+            }
+
+            60%, 75%{
+                transform: translateX(-3600px);
+            }
+
+            80%, 95%{
+                transform: translateX(-4800px);
+            }
+
+            100%{
+                transform: translateX(0);
+            }
+        }
+
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="banner-image">
+
+            <div class="slide-track">
+                <img src="img/banner/배너피넛.png" alt="허니 피넛 크런치 케이크">
+                <img src="img/banner/배너넛.png" alt="몽블랑 체스트넛 티라미수">
+                <img src="img/banner/배너초코.png" alt="딥 다크 초콜릿 가나슈 케이크">
+                <img src="img/banner/배너피스타치오.png" alt="피스타치오 라즈베리 쁘띠 케이크">
+                <img src="img/banner/배너치즈.png" alt="바스크 번트 치즈케이크">
+            </div>
+
+        </div>
+        <div class="item-grid">
+            <div class="item">
+                <img src="img/items/peanut.png" alt="허니 피넛 크런치 케이크">
+                허니 피넛 크린치 케이크
+            </div>
+            <div class="item">
+                <img src="img/items/nut.png" alt="몽블랑 체스트넛 티라미수">
+                몽블랑 체스트넛 티라미수
+            </div>
+            <div class="item">
+                <img src="img/items/chocolate.png" alt="딥 다크 초콜릿 가나슈 케이크">
+                딥 다크 초콜릿 가나슈 케이크
+            </div>
+            <div class="item">
+                <img src="img/items/pistachio.png" alt="피스타치오 라즈베리 쁘띠 케이크">
+                피스타치오 라즈베리 쁘띠 케이크
+            </div>
+            <div class="item">
+                <a href="detail.html"><img src="img/items/cheeze.png" alt="바스크 번트 치즈케이크"></a>
+                바스크 번트 치즈케이크
+            </div>
+            <div class="item">
+                <span style="position: relative; top:200px;"><a href="wire.html">기획의도 & 와이어프레임</a></span>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
