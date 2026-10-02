@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+            gap: 50px;
+            padding: 30px;
+            
+        }
+        .item{
+            background-color: white;
+            color: black;
+            border: 10px solid black;
+            border-radius: 25px;
+
+            font-weight: bold;
+            font-size: 3rem;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            text-align: center;
+            line-height: 100%;
+            aspect-ratio: 1/1;
+            transition: 0.2s;
+
+            box-sizing: border-box;
+        }
+        .item:hover{
+            transform: scale(1.1);
+            background-color: lightyellow;
+        }
+        body{
+            
+            background-color: black;
+            
+        }
+
+        .big-box{
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: 1 ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item big-box">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item big-box">11</div>
+        <div class="item">12</div>
+        <div class="item">13</div>
+        <div class="item">14</div>
+        <div class="item">15</div>
+        <div class="item">16</div>
+        <div class="item">17</div>
+        <div class="item">18</div>
+        <div class="item">19</div>
+    </div>
+    
+</body>
+</html>

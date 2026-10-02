@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>마음이 전달되었습니다</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            background-color: #f5f1ea;
+
+            font-family: "Gowun Batang", serif;
+        }
+
+        .complete-page {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .envelope {
+            font-size: 5rem;
+
+            margin-bottom: 30px;
+
+            animation: appear 1.2s ease;
+        }
+
+        h1 {
+            margin: 0;
+
+            font-size: 2.5rem;
+            font-weight: normal;
+
+            animation: appear 1.5s ease;
+        }
+
+        p {
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 1.1rem;
+
+            animation: appear 2s ease;
+        }
+
+        .home-btn {
+            margin-top: 50px;
+
+            padding: 14px 35px;
+
+            border: 1px solid #444;
+            border-radius: 30px;
+
+            color: #444;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            background-color: #444;
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+        @keyframes appear {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="complete-page">
+
+    <div class="envelope">
+        ✉
+    </div>
+
+    <h1>
+        소중한 마음이<br>
+        잘 전달되었습니다.
+    </h1>
+
+    <p>
+        전하지 않으면 알 수 없는 마음이 있습니다.<br>
+        오늘은 그 마음을 잘 전했습니다.
+    </p>
+
+    <a href="index.html" class="home-btn">
+        처음으로 돌아가기
+    </a>
+
+</div>
+
+</body>
+</html>

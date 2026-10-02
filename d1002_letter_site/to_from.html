@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보내는 사람 설정</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f5f1ea;
+            font-family: sans-serif;
+        }
+
+        .container {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+
+        .description {
+            margin-bottom: 40px;
+            color: #777;
+        }
+
+        .form-box {
+            width: min(500px, 90vw);
+
+            padding: 40px;
+
+            background-color: white;
+            border-radius: 20px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 10px;
+
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #ccc;
+            border-radius: 10px;
+
+            font-size: 1rem;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #9b8267;
+
+            box-shadow: 0 0 0 3px rgba(155, 130, 103, 0.15);
+        }
+
+        .send-btn {
+            width: 100%;
+
+            margin-top: 15px;
+            padding: 16px;
+
+            border: none;
+            border-radius: 12px;
+
+            background-color: #4b433b;
+            color: white;
+
+            font-size: 1.1rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .send-btn:hover {
+            background-color: #332e29;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>마지막으로 이름을 적어주세요</h1>
+
+    <p class="description">
+        누구에게, 누구의 마음인지 알려주세요.
+    </p>
+
+    <form class="form-box" action="complete.html">
+
+        <div class="input-group">
+            <label for="receiver">받는 이</label>
+
+            <input
+                type="text"
+                id="receiver"
+                name="receiver"
+                placeholder="받는 사람의 이름"
+                required
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="sender">보내는 이</label>
+
+            <input
+                type="text"
+                id="sender"
+                name="sender"
+                placeholder="보내는 사람의 이름"
+                required
+            >
+        </div>
+
+        <button class="send-btn" type="submit">
+            마음 전송하기
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

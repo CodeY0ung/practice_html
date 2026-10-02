@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            line-height: 1.5;
+        }
+        .bold{
+            font-weight: bold;
+        }
+
+        .code-box{
+            border-radius: 30px;
+            background-color: aliceblue;
+            width: 40%;
+            /* height: 150px; */
+            padding: 10px;
+            padding-left: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>1. '== '연산자</h2>
+    
+
+    <hr>
+
+    <p>Java에서 `==` 연산자는 두 값이 같은지를 비교할 때 사용하는 연산자이다. <br>  
+    하지만 <span class="bold">비교 대상이 기본 자료형인지 참조 자료형인지에 따라 비교하는 대상이 달라진다.</span></p>
+
+    
+
+    <h3>기본 자료형의 경우</h3>
+
+    <p>
+        `int`, `double`, `char`, `boolean`과 같은 기본 자료형에서는 `==`가 <span>실제 저장된 값</span>을 비교한다.
+    </p>
+
+
+    <p class="code-box">
+        int a = 10; <br>
+        int b = 10; <br>
+        <br>
+        System.out.println(a == b);
+    </p>
+    
+    <p>실행 결과:</p>
+    
+    <p class="code-box">
+        true
+    </p>
+
+    <p>
+
+        `a`와 `b`에는 모두 `10`이라는 값이 저장되어 있기 때문에 `true`가 출력된다.
+
+        즉, 기본 자료형에서는 다음과 같이 이해하면 된다.
+    </p>
+
+    <p class="code-box">
+        a == b <br>
+        ↓ <br>
+        a의 값과 b의 값을 비교
+    </p>
+
+    <hr>
+
+    <h3>참조 자료형의 경우</h3>
+
+    <p>객체를 사용하는 참조 자료형에서는 의미가 달라진다.</p>
+
+    <div class="code-box">
+        Person p1 = new Person("Kim");
+        Person p2 = new Person("Kim");
+    </div>
+    
+    <p>
+        `p1`과 `p2`는 내부에 같은 `"Kim"`이라는 값을 가지고 있지만 서로 다른 객체이다.
+    </p>
+
+    <div class="code-box">
+        System.out.println(p1 == p2);
+
+    </div>
+
+    <p>
+        실행 결과:
+    </p>
+
+    <div class="code-box">
+        false
+
+    </div>
+
+    <p>
+
+        그 이유는 참조 자료형에서 `==`는 객체 내부의 값을 비교하는 것이 아니라 **두 변수가 같은 객체를 참조하고 있는지**를 비교하기 때문이다.
+    </p>
+
+
+    메모리 구조를 단순하게 표현하면 다음과 같다.
+
+    ```text
+    p1 ──────> Person 객체 A
+                name = "Kim"
+
+    p2 ──────> Person 객체 B
+                name = "Kim"
+    ```
+
+    두 객체의 `name` 값은 같지만 `p1`과 `p2`가 가리키는 객체 자체가 다르기 때문에 다음 비교는 `false`가 된다.
+
+    ```java
+    p1 == p2
+    ```
+
+    반대로 다음과 같은 경우를 보자.
+
+    ```java
+    Person p1 = new Person("Kim");
+    Person p2 = p1;
+    ```
+
+    메모리 구조는 다음과 같다.
+
+    ```text
+    p1 ─────┐
+            ├────> Person 객체 A
+    p2 ─────┘      name = "Kim"
+    ```
+
+    `p1`과 `p2`가 동일한 객체를 참조하고 있기 때문에 다음 결과는 `true`이다.
+
+    ```java
+    System.out.println(p1 == p2);
+    ```
+
+    ```text
+    true
+    ```
+
+    따라서 참조 자료형에서 `==`는 다음과 같이 이해할 수 있다.
+
+    ```text
+    p1 == p2
+    ↓
+    두 변수가 같은 객체를 가리키는가?
+    ```
+
+    객체가 가지고 있는 실제 내용을 비교하려면 `==`가 아니라 `equals()` 메서드를 사용해야 한다.
+</body>
+</html>

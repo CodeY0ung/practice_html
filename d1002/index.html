@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Projects</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #111827,
+                    #1f2937
+                );
+
+            color: white;
+        }
+
+
+        /* 전체 영역 */
+
+        #container {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+        }
+
+
+        /* 제목 */
+
+        h1 {
+            margin: 0 0 15px;
+
+            font-size: 3.5rem;
+
+            letter-spacing: 5px;
+        }
+
+
+        .description {
+            margin: 0 0 50px;
+
+            color: #9ca3af;
+
+            font-size: 1.1rem;
+        }
+
+
+        /* 프로젝트 목록 */
+
+        ul {
+            width: min(800px, 90vw);
+
+            margin: 0;
+            padding: 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            list-style: none;
+        }
+
+
+        /* 카드 */
+
+        li {
+            min-height: 160px;
+        }
+
+
+        li a {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 30px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.15);
+
+            border-radius: 20px;
+
+            background:
+                rgba(255, 255, 255, 0.06);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 1.5rem;
+
+            font-weight: bold;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.3s,
+                background-color 0.3s,
+                box-shadow 0.3s;
+        }
+
+
+        /* 작은 설명 */
+
+        li a span {
+            margin-top: 10px;
+
+            color: #9ca3af;
+
+            font-size: 0.9rem;
+
+            font-weight: normal;
+        }
+
+
+        /* hover */
+
+        li a:hover {
+            transform:
+                translateY(-10px)
+                scale(1.03);
+
+            background:
+                rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 20px 40px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* 카드별 hover 포인트 */
+
+        .bank:hover {
+            border-color: #60a5fa;
+        }
+
+
+        .dessert:hover {
+            border-color: #f9a8d4;
+        }
+
+
+        .letter:hover {
+            border-color: #fbbf24;
+        }
+
+
+        .story:hover {
+            border-color: #a78bfa;
+        }
+
+
+        /* 모바일 */
+
+        @media (max-width: 650px) {
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+
+            ul {
+                grid-template-columns: 1fr;
+            }
+
+
+            li {
+                min-height: 130px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div id="container">
+
+    <h1>
+        INDEX
+    </h1>
+
+    <p class="description">
+        프로젝트를 선택하세요.
+    </p>
+
+
+    <ul>
+
+        <li>
+            <a
+                class="bank"
+                href="../d0928/bank.html"
+            >
+                Bank
+
+                <span>
+                    은행 웹페이지
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                class="dessert"
+                href="../d0930_commerce/index.html"
+            >
+                Dessert Shop
+
+                <span>
+                    디저트 샵
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                class="letter"
+                href="../d1002_letter_site/index.html"
+            >
+                Letter
+
+                <span>
+                    마음을 전하는 편지
+                </span>
+            </a>
+        </li>
+
+
+        <li>
+            <a
+                class="story"
+                href="../d1002_story_book/index.html"
+            >
+                Story Book
+
+                <span>
+                    움직이는 동화책
+                </span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+</body>
+
+</html>

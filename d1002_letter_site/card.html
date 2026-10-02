@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마음을 전하세요</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang&family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        body{
+            margin: 0;
+            background-color: #f5f1ea;
+            font-family: sans-serif;
+        }
+
+        .container{
+            min-height: 100vh;
+            padding: 50px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1{
+            margin-bottom: 40px;
+        }
+
+        /* 실제 radio 버튼은 숨김 */
+        input[type="radio"]{
+            display: none;
+        }
+
+        .card-list{
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card{
+            width: 180px;
+            height: 240px;
+
+            background-color: white;
+            border: 3px solid transparent;
+            border-radius: 20px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 2rem;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .card:hover{
+            transform: translateY(-10px);
+        }
+
+        /* 카드 선택 표시 */
+        #love:checked + label{
+            border-color: #e88b9a;
+            background-color: #fff1f3;
+        }
+
+        #sorry:checked + label{
+            border-color: #7895b2;
+            background-color: #eef4fa;
+        }
+
+        #thanks:checked + label{
+            border-color: #c49a52;
+            background-color: #fff9e8;
+        }
+
+        .letter{
+            width: min(700px, 90vw);
+        }
+
+        textarea{
+            width: 100%;
+            min-height: 350px;
+
+            padding: 40px;
+
+            border: none;
+            border-radius: 15px;
+
+            resize: none;
+
+            background-color: #fffdf8;
+
+            font-size: 2rem;
+            line-height: 1.8;
+
+            outline: none;
+
+            transition: 0.4s;
+        }
+
+        /* 사랑해 */
+        body:has(#love:checked) textarea{
+            font-family: "Nanum Pen Script", cursive;
+            background-color: #fff1f3;
+        }
+
+        /* 미안해 */
+        body:has(#sorry:checked) textarea{
+            font-family: "Gowun Batang", serif;
+            background-color: #eef4fa;
+        }
+
+        /* 고마워 */
+        body:has(#thanks:checked) textarea{
+            font-family: "Nanum Brush Script", cursive;
+            background-color: #fff9e8;
+        }
+
+        /* 전송 버튼 */
+        .send-btn {
+            margin-top: 30px;
+
+            min-width: 180px;
+            padding: 16px 40px;
+
+            border: none;
+            border-radius: 12px;
+
+            background-color: #3f3a36;
+            color: white;
+
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+            transition: 0.25s;
+        }
+
+        .send-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .send-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>어떤 마음을 전하고 싶나요?</h1>
+
+    <form action="to_from.html" method="get">
+        <div class="card-list">
+
+            <input type="radio" name="emotion" id="love" value="love" checked>
+            <label for="love" class="card">
+                사랑해
+            </label>
+
+            <input type="radio" name="emotion" id="sorry" value="sorry">
+            <label for="sorry" class="card">
+                미안해
+            </label>
+
+            <input type="radio" name="emotion" id="thanks" value="thanks">
+            <label for="thanks" class="card">
+                고마워
+            </label>
+
+            </div>
+
+            <div class="letter">
+                <textarea name="message" placeholder="전하고 싶은 마음을 적어보세요."></textarea>
+            </div>
+
+            <div>
+                <input class="send-btn" type="submit" value="작성 완료">
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

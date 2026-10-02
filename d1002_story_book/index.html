@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>성냥팔이 소녀</title>
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     전체 책 영역
+===================================================== -->
+
+<main class="book-stage">
+
+
+    <!-- =================================================
+         책 표지
+    ================================================== -->
+
+    <section
+        id="coverScreen"
+        class="cover-screen"
+    >
+
+        <div class="book-floor-shadow"></div>
+
+
+        <div
+            id="closedBook"
+            class="closed-book"
+        >
+
+            <!-- 책 페이지 두께 -->
+            <div class="page-thickness"></div>
+
+
+            <!-- 앞표지 -->
+            <div class="front-cover">
+
+                <div class="cover-inner">
+
+
+                    <span class="cover-subtitle">
+                        안데르센 동화
+                    </span>
+
+
+                    <h1>
+                        성냥팔이<br>
+                        소녀
+                    </h1>
+
+
+                    <!-- 표지 그림 -->
+                    <div class="cover-picture">
+
+
+                        <div class="cover-moon"></div>
+
+
+                        <span class="cover-snow cs1">
+                            ✦
+                        </span>
+
+                        <span class="cover-snow cs2">
+                            ✦
+                        </span>
+
+                        <span class="cover-snow cs3">
+                            ✦
+                        </span>
+
+                        <span class="cover-snow cs4">
+                            ✦
+                        </span>
+
+
+                        <div class="cover-girl">
+
+                            <div class="cover-girl-head"></div>
+
+                            <div class="cover-girl-body"></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <span class="cover-guide">
+                        책을 눌러 이야기를 시작해요
+                    </span>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         전체화면 책 내용
+    ================================================== -->
+
+    <section
+        id="readingScreen"
+        class="reading-screen"
+    >
+
+        <div
+            id="pageContainer"
+            class="page-container"
+        >
+
+
+            <!-- =================================================
+                 PAGE 1
+            ================================================== -->
+
+            <article class="story-page active">
+
+
+                <span class="page-number">
+                    1 / 8
+                </span>
+
+
+                <div class="illustration snow-scene">
+
+
+                    <div class="moon"></div>
+
+
+                    <span class="snow s1">●</span>
+                    <span class="snow s2">●</span>
+                    <span class="snow s3">●</span>
+                    <span class="snow s4">●</span>
+                    <span class="snow s5">●</span>
+                    <span class="snow s6">●</span>
+
+
+                    <!-- 왼쪽 집 -->
+
+                    <div class="house left-house">
+
+                        <div class="window"></div>
+
+                    </div>
+
+
+                    <!-- 오른쪽 집 -->
+
+                    <div class="house right-house">
+
+                        <div class="window"></div>
+
+                    </div>
+
+
+                    <!-- 소녀 -->
+
+                    <div class="girl walking">
+
+                        <div class="girl-hair"></div>
+
+                        <div class="girl-head"></div>
+
+                        <div class="girl-body"></div>
+
+                        <div class="girl-leg leg-left"></div>
+
+                        <div class="girl-leg leg-right"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        눈 내리는 겨울밤
+                    </h2>
+
+
+                    <p>
+                        눈이 펑펑 내리는 아주 추운 밤이었어요.<br>
+                        작은 소녀는 성냥을 들고 거리를 걷고 있었어요.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 2
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    2 / 8
+                </span>
+
+
+                <div class="illustration cold-scene">
+
+
+                    <span class="wind wind1">
+                        〰
+                    </span>
+
+
+                    <span class="wind wind2">
+                        〰
+                    </span>
+
+
+                    <div class="girl shivering">
+
+
+                        <div class="girl-hair"></div>
+
+                        <div class="girl-head"></div>
+
+                        <div class="girl-body"></div>
+
+                        <div class="girl-leg leg-left"></div>
+
+                        <div class="girl-leg leg-right"></div>
+
+
+                    </div>
+
+
+                    <div class="match-box">
+
+
+                        <span></span>
+
+                        <span></span>
+
+                        <span></span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        아무도 성냥을 사지 않았어요
+                    </h2>
+
+
+                    <p>
+                        소녀는 하루 종일 성냥을 팔았지만<br>
+                        아무도 사 주지 않았어요.<br>
+                        손과 발은 점점 더 차가워졌답니다.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 3
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    3 / 8
+                </span>
+
+
+                <div class="illustration match-scene">
+
+
+                    <div class="match">
+
+
+                        <div class="flame">
+
+                            <div class="flame-inner"></div>
+
+                        </div>
+
+
+                        <div class="stick"></div>
+
+
+                    </div>
+
+
+                    <span class="spark spark1">
+                        ✦
+                    </span>
+
+
+                    <span class="spark spark2">
+                        ✦
+                    </span>
+
+
+                    <span class="spark spark3">
+                        ✦
+                    </span>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        치지직! 성냥 하나
+                    </h2>
+
+
+                    <p>
+                        “성냥 하나만 켜 볼까?”<br>
+                        치지직! 작은 불꽃이 환하게 피어났어요.<br>
+                        소녀의 손이 조금씩 따뜻해졌어요.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 4
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    4 / 8
+                </span>
+
+
+                <div class="illustration stove-scene">
+
+
+                    <div class="stove">
+
+
+                        <div class="stove-top"></div>
+
+
+                        <div class="stove-door">
+
+
+                            <div class="fire fire1"></div>
+
+                            <div class="fire fire2"></div>
+
+                            <div class="fire fire3"></div>
+
+
+                        </div>
+
+
+                        <div class="stove-leg stove-leg1"></div>
+
+                        <div class="stove-leg stove-leg2"></div>
+
+
+                    </div>
+
+
+                    <span class="warm warm1">
+                        〰
+                    </span>
+
+
+                    <span class="warm warm2">
+                        〰
+                    </span>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        따뜻한 난로가 나타났어요
+                    </h2>
+
+
+                    <p>
+                        불빛 속에 커다란 난로가 나타났어요.<br>
+                        “아, 따뜻해!”<br>
+                        소녀는 두 손을 난로 가까이 가져갔어요.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 5
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    5 / 8
+                </span>
+
+
+                <div class="illustration feast-scene">
+
+
+                    <!-- 트리 -->
+
+                    <div class="tree">
+
+
+                        <div class="tree-star">
+                            ★
+                        </div>
+
+
+                        <div class="tree-part tree1"></div>
+
+                        <div class="tree-part tree2"></div>
+
+                        <div class="tree-part tree3"></div>
+
+
+                        <div class="tree-trunk"></div>
+
+
+                        <span class="tree-light light1"></span>
+
+                        <span class="tree-light light2"></span>
+
+                        <span class="tree-light light3"></span>
+
+                        <span class="tree-light light4"></span>
+
+
+                    </div>
+
+
+                    <!-- 음식 -->
+
+                    <div class="food-table">
+
+
+                        <div class="plate"></div>
+
+
+                        <div class="food"></div>
+
+
+                        <span class="steam steam1">
+                            〰
+                        </span>
+
+
+                        <span class="steam steam2">
+                            〰
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        맛있는 음식과 반짝이는 트리
+                    </h2>
+
+
+                    <p>
+                        또 성냥을 켜자 맛있는 음식과<br>
+                        반짝반짝 크리스마스트리가 나타났어요.<br>
+                        소녀의 눈도 별처럼 반짝였답니다.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 6
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    6 / 8
+                </span>
+
+
+                <div class="illustration star-scene">
+
+
+                    <div class="night-moon"></div>
+
+
+                    <span class="small-star star1">
+                        ✦
+                    </span>
+
+
+                    <span class="small-star star2">
+                        ✦
+                    </span>
+
+
+                    <span class="small-star star3">
+                        ✦
+                    </span>
+
+
+                    <div class="shooting-star">
+
+
+                        <div class="star-tail"></div>
+
+
+                        <span>
+                            ★
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        하늘에 별 하나가 슝!
+                    </h2>
+
+
+                    <p>
+                        하늘을 바라보니 별 하나가 길게 떨어졌어요.<br>
+                        소녀는 자신을 많이 사랑해 주던<br>
+                        할머니를 떠올렸어요.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 7
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    7 / 8
+                </span>
+
+
+                <div class="illustration grandma-scene">
+
+
+                    <div class="halo halo1"></div>
+
+                    <div class="halo halo2"></div>
+
+
+                    <div class="grandma">
+
+
+                        <div class="grandma-hair"></div>
+
+
+                        <div class="grandma-head"></div>
+
+
+                        <div class="grandma-body"></div>
+
+
+                    </div>
+
+
+                    <span class="heart heart1">
+                        ♥
+                    </span>
+
+
+                    <span class="heart heart2">
+                        ♥
+                    </span>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        “할머니!”
+                    </h2>
+
+
+                    <p>
+                        다시 성냥을 켜자 사랑하는 할머니가 나타났어요.<br>
+                        할머니는 환하게 웃으며<br>
+                        두 팔을 활짝 벌렸답니다.
+                    </p>
+
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 PAGE 8
+            ================================================== -->
+
+            <article class="story-page">
+
+
+                <span class="page-number">
+                    8 / 8
+                </span>
+
+
+                <div class="illustration ending-scene">
+
+
+                    <div class="big-glow"></div>
+
+
+                    <div class="hug">
+
+
+                        <div class="hug-grandma">
+
+
+                            <div class="grandma-head"></div>
+
+                            <div class="grandma-body"></div>
+
+
+                        </div>
+
+
+                        <div class="hug-girl">
+
+
+                            <div class="girl-head"></div>
+
+                            <div class="girl-body"></div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="cloud cloud1"></div>
+
+
+                    <div class="cloud cloud2"></div>
+
+
+                    <span class="final-star final1">
+                        ✦
+                    </span>
+
+
+                    <span class="final-star final2">
+                        ✦
+                    </span>
+
+
+                </div>
+
+
+                <div class="story-text">
+
+
+                    <h2>
+                        따뜻한 품속에서
+                    </h2>
+
+
+                    <p>
+                        소녀는 할머니 품에 꼭 안겼어요.<br>
+                        두 사람은 밝고 따뜻한 빛 속에서<br>
+                        함께 행복한 꿈을 꾸었답니다.
+                    </p>
+
+
+                </div>
+
+
+                <button
+                    id="closeBookButton"
+                    class="close-book-button"
+                    type="button"
+                >
+                    책 덮기
+                </button>
+
+
+            </article>
+
+
+
+            <!-- =================================================
+                 좌우 페이지 버튼
+            ================================================== -->
+
+            <button
+                id="prevButton"
+                class="page-arrow prev-arrow"
+                type="button"
+                aria-label="이전 페이지"
+            >
+                ‹
+            </button>
+
+
+            <button
+                id="nextButton"
+                class="page-arrow next-arrow"
+                type="button"
+                aria-label="다음 페이지"
+            >
+                ›
+            </button>
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

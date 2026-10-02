@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <style>
+        .nanum-pen-script-regular {
+            font-family: "Nanum Pen Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .nanum-brush-script-regular {
+            font-family: "Nanum Brush Script", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #nanum-brush-script-regular:checked + label{
+            font-family: "Nanum Brush Script", sans-serif;
+        }
+
+        .d1:has(#nanum-brush-script-regular:checked) ~.d2 #msg{
+            font-family: "Nanum Brush Script", sans-serif;
+        }
+
+        #nanum-pen-script-regular:checked + label{
+            font-family: "Nanum Pen Script", sans-serif;
+        }
+
+        .d1:has(#nanum-pen-script-regular:checked) ~.d2 #msg{
+            font-family: "Nanum Pen Script", sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="d1">
+        <input type="radio" name="font" id="nanum-brush-script-regular">
+        <label for="nanum-brush-script-regular">nanum-brush 폰트</label>
+        <input type="radio" name="font" id="nanum-pen-script-regular">
+        <label for="nanum-pen-script-regular">nanum-pen 폰트</label>
+    </div>
+    <div class="d2">
+        <textarea id="msg" rows="5" cols="80"></textarea>
+    </div>
+</body>
+</html>

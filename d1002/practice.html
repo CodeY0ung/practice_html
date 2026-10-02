@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .background{
+            background-image: url(img/맑음.jpg);
+        }
+        main{
+            width: 100vw;
+            height: 100vh;
+            
+            /* display: flex;
+            flex-direction: row;
+            justify-content: center; */
+            text-align: center;
+            
+        }
+
+        .top-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            background-color: white;
+        }
+
+        .top-container ul{
+            display: flex;
+            list-style-type: none;
+            gap: 20px;
+
+            position: relative;
+            top: 20px;
+        }
+
+        .top-container img{
+            width: 100px;
+            height: 100px;
+        }
+
+        .textbox{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            margin-top: 20%;
+        }
+
+        .textbox p{
+            background-color: white;
+            width: 500px;
+            height: 300px;
+
+
+            border: 5px solid black;
+            border-radius: 30px;
+            box-sizing: border-box;
+
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            font-size: 20px;
+
+            padding: 10px;
+        }
+        footer{
+            background-color: white;
+            display: flex;
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="background">
+        <div class="top-container">
+            <img class="logo" src="img/image.png" alt="logo">
+            
+                <ul>
+                    <li>menu-1</li>
+                    <li>menu-2</li>
+                    <li>menu-3</li>
+                    <li>menu-4</li>
+                </ul>
+            
+        </div>
+        <article class="textbox">
+            <p>asdfsadfasdfasdfsadfsadf</p>
+        </article>
+        <footer>
+            <p>footer-info-1</p>
+            <p>footer-info-2</p>
+            <p>footer-info-3</p>
+            <p>footer-info-4</p>
+        </footer>
+    </main>
+</body>
+</html>
