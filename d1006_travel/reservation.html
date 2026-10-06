@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .top-menu{
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            width: 20%;
+        }
+        
+        main{
+            justify-items: center;
+            flex: 1;
+        }
+        
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        footer{
+            display: flex;
+            justify-content: space-around;
+        }
+        body{
+            margin: 0px;
+        }
+        .grid-container{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+        div, label{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="" alt="logo"></h1>
+        <ul class="top-menu">
+            <li>홈</li>
+            <li>여행지</li>
+            <li>여행 신청</li>
+        </ul>
+    </header>
+    <main>
+        <h1>여행 신청</h1>
+        <form action="" method="get">
+            <section class="grid-container">
+                <label for="email">email</label>
+                <div><input type="email" name="email" id="email"></div>
+                <label for="tell">tell</label>
+                <div><input type="tell" name="tell" id="tell"></div>
+                <label for="date">date</label>
+                <div><input type="date" name="date" id="date"></div>
+                <label for="number">number</label>
+                <div><input type="number" name="number" id="number"></div>
+                <div>radio</div>
+                <div>
+                    <input type="radio" name="radio" id="radio">radio1 
+                    <input type="radio" name="radio" id="radio">radio2
+                </div>
+                <div>check-box</div>
+                <div>
+                    <input type="checkbox">check-box1
+                    <input type="checkbox">check-box2
+                </div>
+                <div>select</div>
+                <div>
+                    <select name="" id="">
+                        <option value="">option1</option>
+                        <option value="">option2</option>
+                        <option value="">option3</option>
+                    </select>
+                </div>
+                <label>text-area</label>
+                <div><textarea name="" id=""></textarea></div>
+            </section>
+            <div>
+                <button>button</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>대표자 이름 : 홍길동</p>
+        <p>연락처 : 000-0000-0000</p>
+    </footer>
+</body>
+</html>

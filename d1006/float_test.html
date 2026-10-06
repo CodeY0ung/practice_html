@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap1{
+            width: 500px;
+            height: 400px;
+            border: 1px black solid;
+            
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px black solid;
+            box-sizing: border-box;
+        }
+        .green{
+            background-color: green;
+            float: left;
+        }
+        .red{
+            background-color: red;
+            float: left;
+        }
+        .yellow{
+            background-color: yellow;
+            float: right;
+        }
+        /* clear both를 해준 요소부터 다음줄로 넘어감 */
+        .blue{    
+            background-color: blue;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id = wrap1>
+        <div class="box green"></div>
+        <div class="box red"></div>
+        <div class="box yellow"></div>
+        <div class="box blue"></div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .top-menu{
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            width: 20%;
+        }
+        
+        main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        footer{
+            display: flex;
+            justify-content: space-around;
+        }
+        .detail-container{
+            width: 60%;
+            height: 600px;
+        }
+        .detail-container > img{
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+        .detail-container > table{
+            float: left;
+            width: 50%;
+            height: 100%;
+            text-align: center;
+            
+            border-collapse: collapse;
+        }
+        body{
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="" alt="logo"></h1>
+        <ul class="top-menu">
+            <li>홈</li>
+            <li>여행지</li>
+            <li>여행 신청</li>
+        </ul>
+    </header>
+    <main>
+        <section class="detail-container">
+            <img src="" alt="광안대교 사진">
+            <table>
+                <tr>
+                    <td>x</td>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                </tr>
+                <tr>
+                    <th>장소</th>
+                    <td>장소1</td>
+                    <td>장소2</td>
+                    <td>장소3</td>
+                    <td>장소4</td>
+                </tr>
+                <tr>
+                    <th>활동</th>
+                    <td>활동1</td>
+                    <td>활동2</td>
+                    <td>활동3</td>
+                    <td>활동4</td>
+                </tr>
+                <tr>
+                    <th>예상비용</th>
+                    <td>예상비용1</td>
+                    <td>예상비용2</td>
+                    <td>예상비용3</td>
+                    <td>예상비용4</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>대표자 이름 : 홍길동</p>
+        <p>연락처 : 000-0000-0000</p>
+    </footer>
+</body>
+</html>

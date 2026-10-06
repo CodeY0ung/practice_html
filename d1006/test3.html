@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom(document-object-model)-tree</title>
+    <style>
+        #wrap1 p{
+            color: purple;
+        }
+        #wrap2{
+
+        }
+        #wrap2 > p{
+            color: red;
+        }
+        /* id p1을 기준으로 해서 형제들한테만 적용*/
+        #p1 ~ p{
+            color: blue;
+        }
+        /* id가 p1인 애의 바로 다음 형제 */
+        #p1 + p{
+            background-color: orange;
+        }
+        p{
+            background-color:beige;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap1">
+        <p>welcome</p>
+    </div>
+    <div id="wrap2">
+        <p id="p1">hello</p>
+        <p>hi</p>
+        <div>
+            <p>bye</p>
+        </div>
+        <p>hi2</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            /* border: 1px solid black; */
+        }
+        body{
+            width: 620px;
+        }
+        table{
+            width: 100%;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        div{
+            text-align: right;
+        }
+        select{
+            width: 100px;
+        }
+        textarea{
+            width: 100%;
+            height: 100px;
+        }
+        .text-box{
+            width: 47%;
+            height: 20px;
+        }
+        select{
+            height: 20px;
+        }
+        button{
+            margin-top: 10px;
+            margin-left: 5px;
+            padding: 5px;
+        }
+        td{
+            height: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>회원가입 폼</h2>
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="id" id="id" class="text-box"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="text" name="pw" id="pw" class="text-box"></td>
+        </tr>
+        <tr>
+            <td>비밀번호 확인</td>
+            <td><input type="text" name="pw-check" id="pw-check" class="text-box"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="username" id="username" class="text-box"></td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>
+                <input type="text" name="firstemail" id="firstemail" class="text-box">@
+                <select name="listemail" id="lastemail" class="text-box">
+                    <option value="">직접입력</option>    
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>이메일 수신</td>
+            <td><input type="radio" name="" id="" checked>비수신 <input type="radio" value="">수신</td>
+        </tr>
+        <tr>
+            <td>가입 경로</td>
+            <td><input type="checkbox">친구추천 <input type="checkbox">인터넷검색 <input type="checkbox" checked>기타 </td>
+        </tr>
+        <tr>
+            <td>인사말</td>
+            <td> <textarea name="" id=""></textarea></td>
+        </tr>
+    </table>
+    <div>
+        <button>저장하기</button>
+        <button>취소하기</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .top-menu{
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            width: 20%;
+        }
+        
+        main{
+            justify-items: center;
+            flex: 1;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0px;
+        }
+        footer{
+            display: flex;
+            justify-content: space-around;
+        }
+        .main-article{
+            display: flex;
+            width: 1000px;
+            height: 600px;
+        }
+        .main-article img{
+            flex: 1;
+        }
+        .main-article article{
+            flex: 1;
+        }
+        .side-article{
+            display: flex;
+            width: 1000px;
+            height: 200px;
+        }
+        .side-article article{
+            flex: 1;
+            border-radius: 5%;
+            margin: 5px;
+            border: solid 1px black;
+            box-shadow: 5px 5px gray;
+        }
+        nav{
+            justify-items: center;
+            width: 100%;
+        }
+
+        nav ul{
+            display: flex;
+            list-style-type: none;
+            width: 50%;
+            justify-content: space-around;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><img src="" alt="logo"></h1>
+        <ul class="top-menu">
+            <li>홈</li>
+            <li>여행지</li>
+            <li>여행 신청</li>
+        </ul>
+    </header>
+    <main>
+        <h1>Busan-Travle</h1>
+        <nav>
+            <ul>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+        </nav>
+        <section class="main-article">
+            <img src="" alt="장소1">
+            <article>
+                <ul>
+                    <li>장소</li>
+                    <li>죽여</li>
+                    <li>주네</li>
+                </ul>
+            </article>
+        </section>
+        <section class="side-article">
+            <article>여행 특징 카드1</article>
+            <article>여행 특징 카드2</article>
+            <article>여행 특징 카드3</article>
+        </section>
+    </main>
+    <footer>
+        <p>대표자 이름 : 홍길동</p>
+        <p>연락처 : 000-0000-0000</p>
+    </footer>
+</body>
+</html>

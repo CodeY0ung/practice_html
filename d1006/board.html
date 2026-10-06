@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .doc{
+            width: 620px;
+        }
+        .title-cell{
+            width: 80px;
+        }
+        
+        td{
+            border-bottom: 1px solid gray;
+            padding: 10px;
+        }
+        .title-textbox{
+            width: 500px;
+            height: 25px;
+        }
+        textarea{
+            width: 500px;
+            height: 100px;
+        }
+        .div-last{
+            text-align: right;
+        }
+        .div-last input{
+            margin-top: 20px;
+            padding: 5px 20px;
+            margin-left: 3px;
+        }
+        table{
+            border-top: 3px solid black;
+            /* 셀들의 테두리를 서로 합쳐 하나의 선으로 보이게 하는 속성 */
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div class="doc">
+        <h3>게시판 글쓰기 폼</h3>
+        <form action="">
+            <table>
+                <tr>
+                    <td class="title-cell">이름</td>
+                    <td>홍길동</td>
+                </tr>
+                <tr>
+                    <td class="title-cell">제목</td>
+                    <td><input type="text" class="title-textbox"></td>
+                </tr>
+                <tr>
+                    <td class="title-cell">글 내용</td>
+                    <td><textarea name="content" id="content"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="title-cell">파일</td>
+                    <td><input type="file"></td>
+                </tr>
+            </table>
+            <div class="div-last">
+                <input type="submit" value="저장하기">
+                <input type="submit" value="목록보기">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
