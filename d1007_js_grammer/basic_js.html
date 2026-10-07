@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 ~ 3 정수
+
+        let flag = true;
+
+        let cnt = 0;
+        let win = 0;
+
+        while(flag){
+            let num = Math.floor(Math.random()*3)+1
+            let com;
+    
+            switch(num){
+                case 1:
+                    com = "가위";
+                    break;
+                case 2:
+                    com = "바위";
+    
+                    break;
+                case 3:
+                    com = "보";
+                    break;
+            }
+                    
+            cnt++;
+            let me = prompt("가위,바위,보 중에 입력");
+
+            if(me==="가위" && com==="바위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("졌습니다.");
+            }
+            else if(me==="가위" && com==="보"){
+                console.log("me :" +me+", com : "+com);
+                console.log("이겼습니다.");
+                win++;
+            }
+            else if(me==="가위" && com==="가위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("비겼습니다.");
+            }
+            else if(me==="바위" && com==="보"){
+                console.log("me :" +me+", com : "+com);
+                console.log("졌습니다.");
+            }
+            else if(me==="바위" && com==="가위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("이겼습니다.");
+                win++;
+            }
+            else if(me==="바위" && com==="바위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("비겼습니다.");
+            }
+            else if(me==="보" && com==="가위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("졌습니다.");
+            }
+            else if(me==="보" && com==="바위"){
+                console.log("me :" +me+", com : "+com);
+                console.log("이겼습니다.");
+                win++;
+            }
+            else if(me==="보" && com==="보"){
+                console.log("me :" +me+", com : "+com);
+                console.log("비겼습니다.");
+            }
+            else if(me==="그만"){
+                flag = false;
+            }
+            else{
+                console.log("me :" +me+", com : "+com);
+                console.log("잘못 된 값 입력됨.");
+                cnt--;
+            }
+
+            console.log(cnt + "전 "+win+"승")
+        }
+        
+        
+    </script>
+</body>
+</html>
