@@ -17,20 +17,20 @@
             background-color: blue;
             
         }
-        .middle-circle{
+        #middle-circle{
             width: 200px;
             height: 200px;
             background-color: red;
             
         }
-        .small-circle{
+        #small-circle{
             width: 100px;
             height: 100px;
             background-color: yellow;
         }
         #big-circle, 
-        .middle-circle, 
-        .small-circle,
+        #middle-circle, 
+        #small-circle,
         .box{
             
             display: flex;
@@ -38,8 +38,8 @@
             align-items: center;
         }
         #big-circle, 
-        .middle-circle, 
-        .small-circle
+        #middle-circle, 
+        #small-circle
         {
             border-radius: 50%;
             
@@ -54,8 +54,8 @@
     <h1>과녁을 만들어 봅시다.</h1>
     <div class="box">
         <div id="big-circle">
-            <div class="middle-circle">
-                <div class="small-circle">
+            <div id="middle-circle">
+                <div id="small-circle">
 
                 </div>
             </div>
@@ -65,16 +65,16 @@
 <script>
     // 부모와 자식에 같은 click이벤트가 걸려있으면, 이벤트가 전파된다. bubbling이 기본
     // true를 붙이면 capturing이 설정됨. 
-    const big = document.getElementsById("big-circle");
-    const middle = document.getElementsByClassName("middle-circle");
-    const small = document.getElementsByClassName("small-circle");
-    big.addEventListner("click", ()=>{
+    const big = document.getElementById("big-circle");
+    const middle = document.getElementById("middle-circle");
+    const small = document.getElementById("small-circle");
+    big.addEventListener("click", ()=>{
         alert("big");
-    }, true)
-    middle.addEventListner("click",()=>{
+    })
+    middle.addEventListener("click",()=>{
         alert("middle");
     }, true)
-    small.addEventListner("click",()=>{
+    small.addEventListener("click",()=>{
         alert("small");
     }, true)
 
