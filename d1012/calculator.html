@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 500px;
+            height: 700px;
+        }
+        #btn-container{
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(4,82px);
+            grid-template-rows: repeat(4,82px);
+        }
+        .input-box{
+            width: 100%;
+            display: block;    
+        }
+        button{
+            display: block;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="containter">
+        <input type="text" name="text-box" id="text-box" class="input-box" value="">
+        <div id="btn-container">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>0</button>
+            <button>/</button>
+            <button id="result">=</button>
+            <button id="clear">C</button>
+        </div>
+    </div>
+</body>
+<script>
+
+    // 계산식 적을 text-box
+    const textBox = document.getElementById("text-box");
+
+    const button = document.getElementById("btn-container");
+    button.addEventListener("click",(e)=>{
+        const x = e.target.textContent;
+
+        if(x === "="){
+            textBox.value = eval(textBox.value);
+        }else if(x === "C"){
+            textBox.value = ""
+        }else{
+            textBox.value += x;
+        }
+    })
+
+
+</script>
+</html>
