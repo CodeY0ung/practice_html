@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="x">hi</button>
+        <button id="btn1">button</button>    
+    </div>
+
+    <div>
+        <img src="img/a.png" alt="img파일" id="img">
+        <button id = "btn2">img button</button>
+    </div>
+
+</body>
+<script>
+    // id가 x인 요소를 건드리겠다.
+    const x = document.getElementById("x");
+    // click 이벤트가 발생했을 때, 어떤 일을 할거다.
+    // 함수 안에 함수가 들어간 형태. call back 함수.
+    // x.addEventListener("click",f);
+    // const f = ()=>alert("hi");
+    // 이렇게 바로 화살표 함수 넣어도 됨.
+    x.addEventListener("click",()=>{
+        alert("hi");
+    })
+    
+    // getElement로 찾아와서 변수에 저장하고, addEventListner로 동작 주면 됨.
+    const btn1 = document.getElementById("btn1");
+    btn1.addEventListener("click",f1)
+    function f1(){
+        btn1.style.backgroundColor = "red";
+    }
+
+    const btn2 = document.getElementById("btn2");
+    btn2.addEventListener("click",()=>{
+        const img = document.getElementById("img");
+        img.setAttribute("src","img/b.jpg");
+        // getAttribute -> 현재 이름 속성이 어떤 값을 바꾸는지 알고싶을때
+    })
+
+</script>
+</html>
