@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form의 name 속성 이용하여 입력요소 식별하기</h1>
+    <hr>
+    <form name="frm">
+        <input type="text" name="first_name" placeholder="Input userid..."> <br>
+        <input type="text" name="last_name" placeholder="Copy&Paste userid...">
+        <br>
+        <button type="button" id="reg-btn">이름 합치기</button>
+    </form>
+    <div id="demo">여기에 이름이 합쳐집니다.</div>
+    
+</body>
+<script>
+    const reg_btn = document.getElementById("reg-btn")
+    reg_btn.addEventListener("click",()=>{
+        // name으로도 요소가 찾아지고, 부모에서 자식까지 타고들어가지네.
+        const first_name = document.frm.first_name.value;
+        const last_name = document.frm.last_name.value;
+        demo.textContent = `이름은 ${first_name} ${last_name} 입니다.`;
+    })
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Form의 name 속성 이용하여 입력요소 식별하기</h1>
+    <hr>
+    <form name="frm">
+        <input type="text" name="userid" placeholder="Input userid..."> <br>
+        <input type="text" name="userid_copy" placeholder="Copy&Paste userid...">
+        <br>
+        <button type="button" id="reg-btn">복사</button>
+    </form>
+    
+</body>
+<script>
+    const reg_btn = document.getElementById("reg-btn")
+    reg_btn.addEventListener("click",()=>{
+        // name으로도 요소가 찾아지고, 부모에서 자식까지 타고들어가지네.
+        const userid = document.frm.userid;
+        document.frm.userid_copy.value=userid.value;
+    })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name = frm>
+        <input type="checkbox" name="hobby" value="coding" checked>
+        코딩
+        <input type="checkbox" name="hobby" value="running">
+        달리기
+        <input type="checkbox" name="hobby" value="reading">
+        독서
+        <button type="button" id="btn">확인</button>
+    </form>
+    <hr>
+    <div id="result"></div>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    const result = document.getElementById("result");
+    
+    btn.addEventListener("click",()=>{
+        const hobbys = document.frm.hobby;
+
+        result.textContent="";
+        for(let i=0; i<hobbys.length; i++){
+            if(hobbys[i].checked){
+                result.innerHTML += `value : ${hobbys[i].value},
+                텍스트 : ${hobbys[i].nextSibling.textContent} <br>`;
+            }
+        }
+    })
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            height: 30px;
+            width: 50px;
+        }
+        input{
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>표에 입력 연습</h1>
+    <hr>
+    <table>
+            <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>연락처</th>
+            </tr>
+            <tbody id="demo">
+
+            </tbody>
+    </table>
+    <hr>
+    <form name="frm">
+        <input type="text" name="no" id="no" placeholder="번호">
+        <input type="text" name="name" id="name" placeholder="이름">
+        <input type="text" name="phone" id="phone" placeholder="연락처">
+        <button type="button" id="btn">등록</button>
+    </form>
+    <hr>
+    <h1>일괄 등록 연습</h1>
+    <button type="button" id="btn2">일괄 등록</button>
+    <table id="demo2">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>연락처</th>
+        </tr>
+    </table>
+</body>
+<script>
+    
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+        // value 찾아올때는 name쓰고
+        const no = document.frm.no.value;
+        const name = document.frm.name.value;
+        const phone = document.frm.phone.value;
+        
+        const demo = document.getElementById("demo");
+        demo.innerHTML +=`<tr><td>${no}</td><td>${name}</td><td>${phone}</td></tr>`
+    })
+
+    const members = [
+        memeber1 = {
+            no : 1,
+            name : "name1",
+            phone : "phone1"
+        },
+        memeber2 = {
+            no : 2,
+            name : "name2",
+            phone : "phone2"
+        },
+        memeber3 = {
+            no : 3,
+            name : "name3",
+            phone : "phone3"
+        }
+    ];
+
+    const btn2 = document.getElementById("btn2");
+    btn2.addEventListener("click",()=>{
+        const demo2 = document.getElementById("demo2");
+        for(const m of members){
+            demo2.innerHTML +=`<tr>
+                <td>${m.no}</td>
+                <td>${m.name}</td>
+                <td>${m.phone}</td>
+                </tr>`
+        }
+        
+    })
+
+
+
+</script>
+</html>
