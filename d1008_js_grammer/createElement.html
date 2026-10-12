@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 문서에 h1 element 이름은 title 하나 만들었음.
+    const title = document.createElement('h1');
+    // title을 body의 자식으로 추가하겠다.
+    document.body.appendChild(title);
+    title.textContent = 'MBTI검사';
+
+    const button1 = document.createElement('button');
+    document.body.appendChild(button1);
+    button1.textContent = '1번 선택';
+
+    const button2 = document.createElement('button');
+    document.body.appendChild(button2);
+    button2.textContent = '2번 선택';
+
+    // 클릭 이벤트가 일어나면 f라는 함수가 발생한다.
+    // 어차피 이 버튼에서만 사용될거니까 익명 함수로
+    button1.addEventListener('click',function(){
+        alert("1번 버튼 클릭됨!");
+        title.style.display='none';
+    });
+
+    button2.addEventListener('click',function(){
+        alert("2번 버튼 클릭됨!");
+        title.style.display='';
+    });
+
+    btn1.setAttribute('class','btn');
+</script>
+</html>
