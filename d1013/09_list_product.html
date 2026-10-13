@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody id="demo">
+            <tr>
+                <th>제품 id</th>
+                <th>제품명</th>
+                <th>가격</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+
+    // local storage에서 상품들 찾아오기
+    const products = JSON.parse(localStorage.getItem("products"));
+    const demo = document.getElementById("demo");
+
+    for(const p of products){
+        demo.innerHTML += `
+                <tr>
+                    <td>${p.id}</td>
+                    <td>${p.name}</td>
+                    <td>${p.price}</td>
+                </tr>
+                `;
+    }
+
+
+
+</script>
+</html>

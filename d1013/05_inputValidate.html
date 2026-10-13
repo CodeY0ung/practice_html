@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            
+        }
+    </style>
+</head>
+<body>
+    <form name="frm">
+        <input type="text" name="userId", id="userId", placeholder="id">
+        <button type="button" id="idCheck">중복 확인</button>
+        <br>
+        <input type="password" name="pw" id="pw" placeholder="password"><br>
+        <input type="password" name="pwCheck" id="pwCheck" placeholder="password-check">
+        <p id="result"></p>
+        <button type="submit">가입</button>
+    </form>
+</body>
+<script>
+    const id = document.frm.userId;
+    const idCheck = document.getElementById("idCheck");
+    const pw = document.frm.pw;
+    const pwCheck = document.frm.pwCheck;
+    const result = document.getElementById("result");
+    const idList = ["id1","id2","id3"];
+
+    idCheck.addEventListener("click",function(){
+        if(idList.includes(id.value)){
+            alert("중복된 id 입니다.");
+        }else{
+            alert("사용 가능한 id 입니다.");
+        }
+    });
+
+    pwCheck.addEventListener("blur",function(){
+        if(pw.value === pwCheck.value){
+            result.textContent = "통과"
+        }else{
+            result.textContent = "비밀번호를 다시 확인해주세요";
+        }
+    })
+
+
+</script>
+</html>

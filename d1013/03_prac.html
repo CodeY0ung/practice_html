@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 학생 데이터
+        const students = [
+        { id: 1, name: '김철수', age: 17, grade: 'A', score: 92, subjects: ['수학', '영어'] },
+        { id: 2, name: '이영희', age: 16, grade: 'B', score: 78, subjects: ['과학', '영어'] },
+        { id: 3, name: '박민수', age: 18, grade: 'A', score: 88, subjects: ['수학', '과학'] },
+        { id: 4, name: '최지연', age: 17, grade: 'C', score: 65, subjects: ['영어', '미술'] },
+        { id: 5, name: '정다운', age: 16, grade: 'B', score: 81, subjects: ['수학', '체육'] },
+        { id: 6, name: '한소희', age: 18, grade: 'A', score: 95, subjects: ['과학', '수학'] },
+        { id: 7, name: '오세훈', age: 17, grade: 'D', score: 52, subjects: ['미술', '체육'] },
+        { id: 8, name: '윤아름', age: 16, grade: 'B', score: 76, subjects: ['영어', '과학'] },
+        ];
+
+        // 2. 상품 데이터
+        const products = [
+        { id: 101, name: '노트북', category: '전자기기', price: 1500000, stock: 5, rating: 4.5 },
+        { id: 102, name: '마우스', category: '전자기기', price: 35000, stock: 50, rating: 4.2 },
+        { id: 103, name: '책상', category: '가구', price: 250000, stock: 12, rating: 4.8 },
+        { id: 104, name: '의자', category: '가구', price: 180000, stock: 8, rating: 4.0 },
+        { id: 105, name: '키보드', category: '전자기기', price: 120000, stock: 0, rating: 4.6 },
+        { id: 106, name: '스탠드', category: '가구', price: 45000, stock: 30, rating: 3.9 },
+        { id: 107, name: '모니터', category: '전자기기', price: 400000, stock: 15, rating: 4.7 },
+        { id: 108, name: '책장', category: '가구', price: 320000, stock: 3, rating: 4.3 },
+        ];
+
+        // 3. 주문 데이터
+        const orders = [
+        { orderId: 1, userId: 'user1', items: [{ name: '노트북', qty: 1, price: 1500000 }], status: '배송완료' },
+        { orderId: 2, userId: 'user2', items: [{ name: '마우스', qty: 2, price: 35000 }, { name: '키보드', qty: 1, price: 120000 }], status: '배송중' },
+        { orderId: 3, userId: 'user1', items: [{ name: '의자', qty: 1, price: 180000 }], status: '배송완료' },
+        { orderId: 4, userId: 'user3', items: [{ name: '책상', qty: 1, price: 250000 }, { name: '스탠드', qty: 2, price: 45000 }], status: '주문접수' },
+        { orderId: 5, userId: 'user2', items: [{ name: '모니터', qty: 1, price: 400000 }], status: '배송완료' },
+        ];
+
+        // 4. 숫자 배열
+        const numbers = [3, 7, 1, 9, 4, 12, 8, 5, 15, 2, 6, 11];
+
+        //filter
+        //1. students : 성적이 80점 이상인 학생만
+        const over80Scores = students.filter(s => s.score >= 80);
+        console.log(over80Scores);
+        //2. students : '수학'을 듣는 학생만
+        const mathStudents = students.filter(s => s.subjects.includes('수학'));
+        console.log(mathStudents);
+        //3. products : 재고가 있는 상품만
+        const inStock = products.filter(p => p.stock > 0);
+        console.log(inStock);
+        //4. products : '전자기기' 카테고리이면서 가격 20만원 이하
+        const cheapElectronics = products.filter(p => p.category === '전자기기' && p.price <= 200000);
+        console.log(cheapElectronics);
+        //5. numbers : 짝수만 추출
+        const even = numbers.filter(n => n % 2 == 0);
+        console.log(even);
+
+        //map
+        //1. 학생 이름만 배열로 추출
+        const names = students.map(s => s.name);
+        console.log(names);
+        //2. 숫자 배열의 각 요소를 제곱한 배열
+        const squared = numbers.map(n => n ** 2);
+        console.log(squared);
+        //3. 모든 상품가격에 부가세(10%) 포함 가격 배열 만들기
+        // 결과: [{ name: '노트북', priceWithTax: 1650000 }, ...]
+        const withTax = products.map(p => ({
+            name: p.name,
+            priceWithTax: p.price * 1.1
+        }));
+        console.log(withTax);
+        //4. 주문별 총 금액 계산해서 배열 만들기
+        // 결과: [{ orderId: 1, total: 1500000 }, ...]
+        const orderTotals = orders.map(o => ({
+            orderId: o.orderId,
+            total: o.items.reduce((sum, i) => sum + i.price * i.qty, 0)
+        }));
+        console.log(orderTotals);
+
+        //reduce
+        //1. 숫자 배열 합계
+        const sum = numbers.reduce((acc, n) => acc + n, 0); // 83
+        console.log(sum);
+        //2. 상품의 총 재고 가치(price * stock 합)
+        const totalStockValue = products.reduce(
+            (acc, p) => acc + p.price * p.stock, 0
+        );
+        console.log(totalStockValue);
+        //3. 카테고리별 상품 개수 세기
+        // 결과: { '전자기기': 4, '가구': 4 }
+        const countByCategory = products.reduce((acc, p) => {
+            acc[p.category] = (acc[p.category] || 0) + 1;
+            return acc;
+        }, {});
+        console.log(countByCategory);
+        //4. 학생들의 평균 점수
+        const avg = students.reduce((acc, s) => acc + s.score, 0) / students.length;
+        console.log(avg);
+        //5. 최고 점수 학생 찾기
+        const topStudent = students.reduce(
+            (best, s) => (s.score > best.score ? s : best)
+        );
+        console.log(topStudent);
+
+        //종합
+        //1. A등급 학생들의 평균 점수
+        const avgA = students
+            .filter(s => s.grade === 'A')
+            .reduce((acc, s) => acc + s.score, 0) / students.filter(s => s.grade === 'A').length;
+        console.log(avgA);
+        // 또는 더 깔끔하게
+        const aStudents = students.filter(s => s.grade === 'A');
+        console.log(aStudents);
+        const avgA2 = aStudents.reduce((a, s) => a + s.score, 0) / aStudents.length;
+        console.log(avgA2);
+
+        //2. 재고 있는 전자기기의 평균 평점
+        const avgRating = products
+            .filter(p => p.category === '전자기기' && p.stock > 0)
+            .reduce((acc, p, _, arr) => acc + p.rating / arr.length, 0);
+        console.log(avgRating);
+            //3. 17세 이상 학생들의 이름 목록
+        const adultNames = students
+            .filter(s => s.age >= 17)
+            .map(s => s.name);
+        console.log(adultNames);
+        //4. 20만원 이상 상품 이름을 대문자로
+        const expensiveNames = products
+            .filter(p => p.price >= 200000)
+            .map(p => p.name.toUpperCase());
+        console.log(expensiveNames);
+        
+    </script>
+</body>
+</html>

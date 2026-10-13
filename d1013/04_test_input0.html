@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name" placeholder="이름 입력">
+    <p id="result"></p>
+</body>
+<script>
+    const nameInput = document.getElementById("name");
+    const result = document.getElementById("result");
+
+    // 화살표 함수의 this는 이벤트에 걸려있는 대상이 아니라 window 자체에 걸려있는거라서 동작을 안함.
+    // 화살표 함수에서는 this를 쓰지 말자.
+    nameInput.addEventListener("input",()=>{
+        console.log("input:", nameInput.value);
+    });
+
+    nameInput.addEventListener("change",function(){
+        console.log("change:",this.value);
+    });
+
+    nameInput.addEventListener("focus",function(){
+        console.log("입력란에 focus 들어옴");
+    })
+
+    nameInput.addEventListener("blur",function(){
+        console.log("focus가 입력란에서 벗어남");
+    })
+</script>
+</html>

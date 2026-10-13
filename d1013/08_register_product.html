@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="09_list_product.html" name="frm">
+        <input type="text" name="productId" id="productId"><br>
+        <input type="text" name="productName" id="productName"><br>
+        <input type="text" name="price" id="price"><br>
+        <input type="file" name="image" id="image"><br>
+        <button type="submit" id="btn">등록</button>
+    </form>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    const frm = document.frm;
+    frm.addEventListener("submit",function(e){
+        e.preventDefault();
+
+        const productId = document.getElementById("productId").value;
+        const productName = document.getElementById("productName").value;
+        const price = document.getElementById("price").value;
+
+        product = {
+            id : productId,
+            name : productName,
+            price : price
+        }
+
+        // localstorage는 문자열만 저장할 수 있음.
+        // 기존 상품 목록 가져오기. 문자열을 객체로 변환
+        let products = JSON.parse(localStorage.getItem("products"));
+
+        // 비어있으면 새로 생성
+        if(products===null){
+            products = [];
+        };
+
+        // 추가
+        products.push(product);
+
+        // localstarage에 객체를 문자열로 변환하여 저장.
+        localStorage.setItem("products",JSON.stringify(products));
+
+        frm.submit();
+    })
+</script>
+</html>

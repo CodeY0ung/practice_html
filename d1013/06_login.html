@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="06_result.html" method="get" name="frm">
+        <input type="text" name="userId" id="userId" placeholder="id">
+        <br>
+        <input type="password" name="pw" id="pw" placeholder="password"><br>
+        <button type="submit">로그인</button>
+    </form>
+</body>
+<script>
+    
+    const frm = document.frm;
+    frm.addEventListener("submit",function(e){
+        e.preventDefault();
+        const userId = document.frm.userId;
+        const pw = document.frm.pw;
+        // 유효성 검사
+        if(userId.value === ""){
+            alert("id를 입력해주세요.");
+            userId.focus();
+            return;
+        }else if(pw.value === ""){
+            alert("pw를 입력해주세요.");
+            pw.focus();
+            return;
+        }else{
+            frm.submit();
+        }
+    })
+</script>
+</html>
+<!-- 상품을 등록하면 결과페이지에 상품 이미지와 정보들 -->
