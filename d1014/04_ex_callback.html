@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>콜백함수</h1>
+    <hr>
+    <p>함수의 인수로 사용된 함수</p>
+</body>
+<script>
+    // call-back 함수 :  함수의 매개변수로 함수가 들어옴.
+
+    // 배열에서 짝수만 걸러내어 배열로 반환하는 결과를 내기.
+    // 짝수만 걸러내는 기능의 콜백함수를 저으이하고, 실행코드를 완성하시오.
+    const arr = [1,2,3,4,5,6,7,8,9,10];
+
+    function calculate(numbers,callback){
+        let result = [];
+
+        for(let i=0;i<numbers.length;i++){
+            if(callback(numbers[i])){
+                result.push(numbers[i])
+            }
+        }
+        return result;
+    };
+
+    function callback(number){
+        return number%2===0;
+    }
+
+    console.log(calculate(arr,callback));
+</script>
+</html>

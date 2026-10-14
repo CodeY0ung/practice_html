@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>클로저</h1>
+    <hr>
+    <p>함수는 자신이 호출된 지역이 아닌 선언지역의 환경을 기억한다.</p>
+</body>
+<script>
+    // func는 f 안에서 선언됨.
+    // 자신이 선언된 f의 x=10를 x로 인식함.
+    function f(){
+        let x = 10;
+
+        function func(){
+            return x;
+        }
+        return func;
+    }
+
+    let x = 100;
+    // f함수가 실행 후 사라졌을텐데 왜 x값을 10으로 그대로 가지고있을까?
+    // 클로저라는 개념 때문이다. f는 실제로 사라졌음. func가 f의 환경을 snapshot으로 기억하고 있는 것 뿐임.
+    const a = f();
+    console.log(a());
+</script>
+</html>

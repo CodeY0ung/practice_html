@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+</body>
+<script>
+// 잘 나오는거니까 알아둡시다.
+    // document.getElementsByClassName - HTMLCollection (Live 방식)
+    // : DOM의 변경 사항을 실시간 반영한다.
+    const items_html = document.getElementsByClassName("itme");
+    Array.from(items_html).forEach(el=>{
+        el.style.backgroudColor = "lightblue";
+    });
+    // 유사배열을 배열로 만드는 방법 1
+    const items_array = Array.from(items_html);
+    
+
+    // querySelectorAll - NodeList (Static 방식)
+    // : Dom의 변경 사항을 반영하지 않는다.
+    // : 변경 사항을 반영하려면 다시 불러와야한다.
+    // for-each는 사용할 수 있지만, filter같은 배열 메소드는 쓸 수 없음.
+    const items_node = document.querySelector(".item");
+    items_node.forEach(el=>{
+        el.style.color = "red";
+    });
+    // 유사배열을 배열로 만드는 방법 2
+    const items_arr2 = [...items_node];
+
+    console.log(`live : ${items_html.length}`);
+    console.log(`static : ${items_node}`);
+
+    const element_div = document.createElement('div');
+    // class 속성을 부여한다.
+    element_div.className = 'item';
+    document.body.appendChild(element_div);
+
+    console.log(`live : ${items_html.length}`);
+    console.log(`static : ${items_node.length}`);
+
+    // query메소드의 인수의 선택자는 css 선택자를 사용한다. 그래서, class는 . 붙이고, id는 # 붙이고 해야됨.
+    const static_items = document.querySelectorAll(".item");
+    console.log(`query-selec-static : ${static_items}`);
+
+    // 반복문 안에서 live 방식은 사용하지 않는게 좋다. 무한loop에 빠질 수 있음.
+
+</script>
+</html>

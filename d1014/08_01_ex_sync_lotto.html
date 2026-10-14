@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container{
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .container div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+
+            text-align: center;
+            line-height: 100px;
+        }
+        button{
+            margin-top: 100px;
+            width: 100px;
+        }
+        .inactivate{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="08_02_ex_sync_lotto_result.html" method="get" name="frm">
+        <section class="container">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+        <input type="text" name="user" class="inactivate">
+        <br>
+        <button type="button" id="btn">뽑기</button>
+        <br>
+        <button type="submit" id="confirm">확인</button>
+    </form>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+        const nums = document.querySelectorAll("div");
+        const lottos = [];
+        let intdex = 0;
+        nums.forEach(e=>{
+            let flag = true;
+            while(flag){
+                const num = Math.floor(Math.random() * 45) + 1;
+                if(!lottos.includes(num)){
+                    lottos.push(num);
+                    flag = false;
+                }
+            }
+            e.textContent = lottos[intdex++];
+        })
+        const user = document.frm.user;
+        user.value = lottos;
+    })
+
+</script>
+</html>

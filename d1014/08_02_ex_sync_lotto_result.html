@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container1{
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .container2{
+            width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid black;
+
+            text-align: center;
+            line-height: 100px;
+        }
+        button{
+            margin-top: 100px;
+            width: 100px;
+        }
+        h2{
+            margin-top: 100px;
+        }
+        .invisible{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>    
+    <h2>내 번호</h2>
+    <section class="container1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div class="invisible"></div>
+    </section>
+    <h2>당첨 번호</h2>
+    <section class="container2">
+        <div class="result"></div>
+        <div class="result"></div>
+        <div class="result"></div>
+        <div class="result"></div>
+        <div class="result"></div>
+        <div class="result"></div>
+        <div class="result"></div>
+    </section>
+    <h2 id="result-text"></h2>
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const userLottos = params.get("user").split(",");
+    const userNums = document.querySelectorAll(".container1 div");
+    userLottos.forEach((e,i)=>{
+        userNums[i].textContent = e;
+    })
+    
+
+    const nums = document.querySelectorAll(".result");
+    const lottos = [];
+    function play(){
+        nums.forEach((e,i)=>{
+            let flag = true;
+            while(flag){
+                const num = Math.floor(Math.random() * 45) + 1;
+                if(!lottos.includes(num)){
+                    lottos.push(num);
+                    flag = false;
+                }
+            }
+            // 실행 예약은 6번 된게 맞음. 예약할때마다 시간을 증가시켜서 예약하는거임. 비동기 함수라서
+            setTimeout(function(){
+                e.textContent = lottos[i];
+            },(i+1)*1000);
+        })
+    };
+    play();
+
+    function getResult(){
+        setTimeout(function(){
+            let cnt = 0;
+            userLottos.forEach((u)=>{
+                lottos.forEach((l)=>{
+                    if(u==l){
+                        cnt++;
+                    }
+                })
+            })
+            const resultText = document.getElementById("result-text");
+            resultText.textContent = `${cnt}개 맞췄습니다. ${6-cnt}등입니다!`
+        },8000);
+    };
+    getResult();
+
+
+</script>
+</html>

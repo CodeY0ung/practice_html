@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 600px;
+        }
+        table, th, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>class 속성 관리</h1>
+    <hr>
+    <p>classList는 html 요소의 css 클래스를 추가, 삭제, 확인, 전환할 때 사용한다.</p>
+    <table>
+        <tr>
+            <th>메소드</th>
+            <th>설명</th>
+            <th>예시</th>
+        </tr>
+        <tr>
+            <td>add()</td>
+            <td>클래스 추가</td>
+            <td>el.classList.add("active")</td>
+        </tr>
+        <tr>
+            <td>remove()</td>
+            <td>클래스 삭제</td>
+            <td>el.classList.remove("active")</td>
+        </tr>
+        <tr>
+            <td>toggle()</td>
+            <td>클래스 삭제,없으면 추가</td>
+            <td>el.classList.toggle("active")</td>
+        </tr>
+        <tr>
+            <td>contains()</td>
+            <td>클래스 존재 여부 확인</td>
+            <td>el.classList.contains("active")</td>
+        </tr>
+        <tr>
+            <td>replace()</td>
+            <td>기존 클래스를 다른 클래스로 변경</td>
+            <td>el.classList.replace("old", "new")</td>
+        </tr>
+    </table>
+    <hr>
+    <div id="box"></div>
+    <script>
+        // 잘 나오는거니까 알아둡시다.
+        const box = document.querySelector('#box');
+        console.log(box);
+    
+        // id가 box인 태그에 active라는 class를 추가
+        box.classList.add("active");
+        console.log(box);
+    
+        // class 제거
+        box.classList.remove('active');
+        console.log(box);
+    </script>
+</body>
+</html>

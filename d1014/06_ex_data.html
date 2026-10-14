@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 부가정보를 다루고자 할때, data-"데이터이름" 속성으로 값을 설정하면 서버에 같이 넘길 수 있음. -->
+    <input type="text" name="x" value="hello" data-x="x01_txt">
+    <input type="text" name="y" value="hi">
+    <div id="demo">here</div>
+    <button id="btn">실행</button>
+</body>
+<script>
+    // 첫번째 요소가 선택됨
+    console.log(document.querySelector('input'));
+    console.log(document.querySelectorAll('input'));
+
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+        const demo = document.getElementById("demo");
+        const x = document.querySelector("input[name='x']");
+        // dataset을 잘 활용하도록.
+        demo.textContent = x.dataset.x;
+    });
+</script>
+</html>

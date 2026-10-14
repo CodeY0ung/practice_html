@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .inactive{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box inactive"></div>
+    <div class="box"></div>
+    <button id="btn" type="button">btn</button>
+</body>
+<script>
+    // 잘 나오는거니까 알아둡시다.
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+        const items = document.querySelectorAll(".box");
+
+        // querySelectorAll로 가져온 요소들은 nodeList라서 forEach로 순회해줘야함.
+        // 개별 요소는 바로 item.classList.toggle("inactive") 쓸 수 있는데, 배열은 요소가 여러개니까 바로 사용 못함.
+        // 반복문을 사용해야함.
+        items.forEach(el=>{
+            el.classList.toggle("inactive");
+        })
+    })
+</script>
+</html>

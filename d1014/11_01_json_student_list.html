@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td, th{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody id="demo">
+            <tr>
+                <th>no</th>
+                <th>name</th>
+                <th>age</th>
+                <th>score</th>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+    // 학생데이터
+    const school = {
+        students: [
+            { no: 1, name: "홍길동", age: 20, score: 85 },
+            { no: 2, name: "김철수", age: 21, score: 90 },
+            { no: 3, name: "이영희", age: 20, score: 95 },
+            { no: 4, name: "박민수", age: 22, score: 78 },
+            { no: 5, name: "최지우", age: 21, score: 88 },
+            { no: 6, name: "정하늘", age: 20, score: 92 },
+            { no: 7, name: "강민지", age: 23, score: 76 },
+            { no: 8, name: "윤서준", age: 21, score: 83 },
+            { no: 9, name: "장유진", age: 22, score: 97 },
+            { no: 10, name: "조현우", age: 20, score: 81 }
+        ]
+    };
+    // 문자열로 변환.. sever에서 받았다고 가정하기위해.
+    const school_str = JSON.stringify(school);
+
+    // 문자열 -> 객체로 풀기
+    const school_json = JSON.parse(school_str);
+
+    // table에 담기.
+    const demo = document.querySelector("#demo");
+    for(const st of school["students"]){
+        demo.innerHTML += `
+            <tr>
+                <td>
+                <a href="11_02_json_student_detail.html?no=${st['no']}&name=${st['name']}&age=${st['age']}&score=${st['score']}">
+                    ${st["no"]}</a></td>
+                <td>${st["name"]}</td>
+                <td>${st["age"]}</td>
+                <td>${st["score"]}</td>
+            </tr>`
+    }
+    
+</script>
+</html>

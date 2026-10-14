@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JSON(Javascript Object Notation)</h1>
+    <hr>
+    <p>자바스크립트 객체 표기법</p>
+    <p>자바스크립트 객체 형태의 문자열</p>
+</body>
+<script>
+    const obj ={
+        name : "name",
+        age : 5
+    };
+
+    const str = JSON.stringify(obj);
+    console.log(str);
+
+    // 문자열(JSON)을 객체로 변환하기
+    const result = JSON.parse(str);
+    console.log(result);
+
+    let json_string = '{"no":1,"title":"hello"}';
+    console.log(json_string);
+</script>
+</html>

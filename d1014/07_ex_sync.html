@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>동기 / 비동기</h1>
+    <hr>
+    <p>동기는 순서대로 진행되는 것이다.</p>
+    <p>비동기는 순서대로 진행되는 것이 아니다.</p>
+</body>
+<script>
+    function f1(){
+    };
+    function f2(){
+        // 시간을 지연시켜주는 함수다. 첫번째 인수는 콜백함수, 두번째 인수는 시간. 1초 표현 : 1000
+        // 사용자에게 긴장감을 줄 수 있음. 로또 번호 확인을 예로들면 됨.
+        setTimeout(function(){
+            console.log('....비동기 함수 실행....');
+        },1000)
+        console.log('f2.....');
+    };
+    function f3(){
+        console.log('f3.....');
+    };
+
+    f1();
+    f2();
+    f3();
+
+    // 서버와의 통신은 비동기통신으로 이루어진다.
+    // 서버의 네트워크 상황과 서버내부의 상황때문에 응답이 오지않을 수 있다.
+    // a함수에서 정체가 걸리면 그 뒤의 함수들은 다 정체가 될 수 있음.
+    // 항상 서버의 응답시간이 일정하지 않기때문에, 순서없이 비동기로 처리하도록 함.
+</script>
+</html>

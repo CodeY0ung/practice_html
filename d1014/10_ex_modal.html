@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #modal{
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        background-color: white;
+        text-align: center;
+        position: absolute;
+        top: 100px;
+    }
+    .inactivate{
+        display: none;
+    }
+    .invisible{
+        visibility: hidden;
+    }
+    .visible{
+        visibility: visible;
+    }
+    #container{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+    }
+    .fadeout{
+        background-color: gray;
+        color: gray;
+    }
+</style>
+<body id="body">
+    <h1>Modal 연습</h1>
+    <hr>
+    <p>아래버튼을 클릭하면 모달창이 뜹니다.</p>
+    <button type="button" id="btn">모달버튼</button>
+    <div id="container">
+        <div id="modal" class="inactivate">
+            <button>닫기</button>
+        </div>
+    </div>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click",()=>{
+        const modal = document.getElementById("modal");
+        modal.textContent = "modal 내용입니다.";
+        modal.classList.toggle("inactivate");
+        const body = document.getElementById("body");
+        body.classList.toggle("fadeout");
+        
+    })
+</script>
+</html>

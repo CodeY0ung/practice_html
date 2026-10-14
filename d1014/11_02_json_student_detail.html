@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const no = params.get("no");
+    const name = params.get("name");
+    const age = params.get("age");
+    const score = params.get("score");
+    const result = document.querySelector("#result");
+    result.innerHTML =`학생정보<br>학생번호:${no} <br>이름:${name} <br>나이:${age} <br>점수:${score}`;
+
+</script>
+</html>
