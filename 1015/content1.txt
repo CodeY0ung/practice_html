@@ -1,0 +1,63 @@
+<section class="intro">
+
+    <h2>BNK부산은행 금융DT 아카데미</h2>
+
+    <h3>
+        [BNK부산은행] 금융DT 아카데미
+        (생성형AI활용, 자바, Spring, Flutter) 개발자 양성과정
+    </h3>
+
+    <p>
+        BNK부산은행의 현업 수요와 금융 IT 직무 분석을 기반으로
+        금융 서비스에 대한 이해와 소프트웨어 개발 역량을 함께
+        학습하는 K-디지털 트레이닝 개발자 양성과정입니다.
+    </p>
+
+    <hr>
+
+    <h3>과정 개요</h3>
+
+    <ul>
+        <li><strong>과정명 :</strong> [BNK부산은행] 금융DT 아카데미(생성형AI활용, 자바, Spring, Flutter) 개발자 양성과정</li>
+        <li><strong>훈련유형 :</strong> K-디지털 트레이닝</li>
+        <li><strong>훈련기간 :</strong> 2026.08.20 ~ 2027.02.24</li>
+        <li><strong>총 교육시간 :</strong> 1,000시간</li>
+        <li><strong>교육분야 :</strong> 금융 IT · 풀스택 개발 · 생성형 AI</li>
+        <li><strong>주요 기술 :</strong> Java, Spring Boot, Oracle, JavaScript, Flutter, REST API, OpenAI</li>
+    </ul>
+
+    <hr>
+
+    <h3>교육 목표</h3>
+
+    <p>
+        금융 서비스의 구조와 업무를 이해하고,
+        Java와 Spring Boot 기반의 서버 개발부터
+        웹 프론트엔드와 Flutter를 활용한 클라이언트 개발까지
+        수행할 수 있는 실무형 개발자를 양성하는 것을 목표로 합니다.
+    </p>
+
+    <p>
+        또한 생성형 AI를 금융 서비스 개발 과정에 활용하고,
+        실제 금융상품 판매 및 관리 서비스를 구현하는
+        프로젝트 중심의 교육이 포함되어 있습니다.
+    </p>
+
+    <hr>
+
+    <h3>주요 특징</h3>
+
+    <ul>
+        <li>BNK부산은행 현업 수요 및 직무 분석 기반 교육</li>
+        <li>금융 IT와 소프트웨어 개발을 결합한 커리큘럼</li>
+        <li>Java · Spring Boot 기반 백엔드 개발</li>
+        <li>Oracle DB를 활용한 데이터베이스 교육</li>
+        <li>JavaScript 기반 웹 개발</li>
+        <li>Flutter 기반 애플리케이션 개발</li>
+        <li>REST API 및 JWT 인증 구현</li>
+        <li>생성형 AI를 활용한 금융 서비스 개발</li>
+        <li>프로젝트 및 경진대회를 통한 실무 경험</li>
+        <li>현업 실무자 및 취업 관련 특강</li>
+    </ul>
+
+</section>

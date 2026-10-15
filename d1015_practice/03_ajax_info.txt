@@ -1,0 +1,5 @@
+<p>AJAX is not a programming loanguage.</p>
+
+<p>AJAX is a technique for accessing web servers from a web page.</p>
+
+<p>AJAX stands for <b>A</b>synchronous <b>J</b>ava<b>s</b>cript and <b>x</b>ml.</p>

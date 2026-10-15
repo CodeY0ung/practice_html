@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    f1();
+    f2();
+    f3();
+    f4();
+
+    function f1(){
+
+    }
+    function f2(){
+        
+    }
+    function f3(){
+        const numbers = [1,2,3,4,5,6];
+        for(let i=0;i<numbers.length;i++){
+            setTimeout(function(){
+                console.log(numbers[i]);
+            }, 1000*(i+1));
+        }        
+        console.log('f3()....');
+    }
+    function f4(){
+        console.log('f4()....');
+    }
+</script>
+</html>

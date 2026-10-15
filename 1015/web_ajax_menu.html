@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #menu{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-top: 2px solid red;
+            border-bottom: 2px solid red;
+            height: 150px;
+        }
+        #menu div{
+            width: 200px;
+            height: 100px;
+            
+            border-radius: 10%;
+            text-align: center;
+            line-height: 60px;
+            background-color: red;
+            transition: transform 0.2s ease;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        #menu div:hover{
+            transform: scale(1.1);
+        }
+        #menu h2{
+            color: white;
+        }
+        #content{
+            padding: 0 50px;
+        }
+        img{
+            width: 180px;
+            height: 80;
+        }
+        .intro,
+        .curriculum,
+        .progress-section {
+            background-color: white;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1000px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro h2,
+        .curriculum h2,
+        .progress-section h2 {
+            margin-top: 0;
+            padding-bottom: 10px;
+
+            border-bottom: 2px solid red;
+
+            color: #222;
+        }
+
+        .intro h3,
+        .curriculum h3,
+        .progress-section h3 {
+            margin-top: 30px;
+            color: darkred;
+        }
+
+        .intro p,
+        .curriculum p,
+        .progress-section p {
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .intro ul,
+        .curriculum ul,
+        .progress-section ul {
+            line-height: 1.8;
+        }
+
+        .course {
+            margin: 20px 0;
+            padding: 20px;
+
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            background-color: #fafafa;
+        }
+        .course h4 {
+            margin-top: 0;
+            color: #222;
+        }
+        .progress-item {
+            margin: 20px 0;
+        }
+        .progress {
+            width: 100%;
+            height: 30px;
+
+            background-color: #ddd;
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-weight: bold;
+        }
+
+        /* 완료 */
+        .progress-bar.complete {
+            width: 100%;
+            background-color: green;
+        }
+
+        /* 진행 중 */
+        .progress-bar.studying {
+            width: 70%;
+            background-color: orange;
+        }
+
+        /* 예정 */
+        .progress-bar.waiting {
+            width: 25%;
+            background-color: gray;
+        }
+
+        /* 현재 학습 영역 */
+        .current-course {
+            padding: 20px;
+
+            border-left: 5px solid red;
+            background-color: #fff5f5;
+
+            margin: 20px 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1><img src="img/bnk.png" alt="로고"> 금융DT 아카데미(생성형AI활용, 자바, Spring, Flutter) 개발자 양성과정</h1>
+    
+    <div id="menu">
+        <div id="menu-1"><h2>과정 소개</h2></div>
+        <div id="menu-2"><h2>교육 내용</h2></div>
+        <div id="menu-3"><h2>진도 현황</h2></div>
+    </div>
+    
+    <main id="content"></main>
+</body>
+<script>
+    const menu1 = document.querySelector("#menu-1");
+    const menu2 = document.querySelector("#menu-2");
+    const menu3 = document.querySelector("#menu-3");
+    const content = document.querySelector("#content");
+    menu1.addEventListener("click",function(){
+        loadDoc("content1.txt");
+    })
+    menu2.addEventListener("click",function(){
+        loadDoc("content2.txt");
+    })
+    menu3.addEventListener("click",function(){
+        loadDoc("content3.txt");
+    })
+
+    function loadDoc(content){
+        
+        const xhttp = new XMLHttpRequest();
+
+        // target 설정
+        // 이 target으로 get 요청 보낼거야!
+        xhttp.open("GET",content,false); // false는 동기방식. true 동기방식이 기본값임.
+
+        // 처리 설정
+        // 보내고 응답이 오면 이렇게 처리해야지!
+        xhttp.onload = function(){
+            document.getElementById("content").innerHTML = xhttp.responseText; // 응답이 오면 responseText가 받는다.
+        };
+
+        // 보내라
+        xhttp.send();
+    }
+</script>
+</html>

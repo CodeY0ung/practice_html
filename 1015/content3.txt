@@ -1,0 +1,109 @@
+<section class="progress-section">
+
+    <h2>교육 진행 현황</h2>
+
+    <p>
+        2026년 8월 20일부터 시작된 금융DT 아카데미의
+        학습 진행 현황입니다.
+    </p>
+
+    <hr>
+
+    <h3>현재 학습 영역</h3>
+
+    <div class="current-course">
+        <h4>JavaScript / Web Programming</h4>
+
+        <ul>
+            <li>JavaScript 기본 문법</li>
+            <li>객체와 배열</li>
+            <li>map / filter / reduce</li>
+            <li>DOM 제어</li>
+            <li>Event 처리</li>
+            <li>Form 데이터 처리</li>
+            <li>localStorage</li>
+            <li>AJAX</li>
+            <li>XMLHttpRequest</li>
+            <li>REST API 활용</li>
+            <li>공공데이터 API 활용</li>
+            <li>Kakao Map API 활용</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>과정별 진행 상태</h3>
+
+    <div class="progress-item">
+        <p>디지털 금융 / CS</p>
+        <div class="progress">
+            <div class="progress-bar complete">
+                학습 완료
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Oracle / SQL</p>
+        <div class="progress">
+            <div class="progress-bar complete">
+                학습 완료
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Java Programming</p>
+        <div class="progress">
+            <div class="progress-bar complete">
+                학습 완료
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>HTML / CSS</p>
+        <div class="progress">
+            <div class="progress-bar complete">
+                학습 완료
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>JavaScript</p>
+        <div class="progress">
+            <div class="progress-bar studying">
+                현재 학습 중
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Spring Boot</p>
+        <div class="progress">
+            <div class="progress-bar waiting">
+                예정
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>Flutter</p>
+        <div class="progress">
+            <div class="progress-bar waiting">
+                예정
+            </div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        <p>생성형 AI 프로젝트</p>
+        <div class="progress">
+            <div class="progress-bar waiting">
+                예정
+            </div>
+        </div>
+    </div>
+
+</section>

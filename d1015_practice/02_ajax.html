@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AJAX</h1>
+    <hr>
+
+    <div id="demo"></div>
+    <button type="button"id="btn">button</button>
+    <button onclick="loadDoc()">onclick="loadDoc()"</button>
+</body>
+<script>
+    const btn = document.querySelector("#btn");
+    btn.addEventListener("click",function(){
+        loadDoc();
+    })
+
+    function loadDoc(){
+        console.log("start....")
+        const xhttp = new XMLHttpRequest();
+
+        // target 설정
+        // 이 target으로 get 요청 보낼거야!
+        xhttp.open("GET","03_ajax_info.txt",false); // false는 동기방식. true 동기방식이 기본값임.
+
+        // 처리 설정
+        // 보내고 응답이 오면 이렇게 처리해야지!
+        xhttp.onload = function(){
+            console.log("============");
+            document.getElementById("demo").innerHTML = xhttp.responseText; // 응답이 오면 responseText가 받는다.
+        };
+
+        // 보내라
+        xhttp.send();
+        console.log("end....")
+    }
+</script>
+</html>

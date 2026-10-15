@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이우영_상세</title>
+    <style>
+        table, th, td{
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+        table{
+            width: 98vw;
+        }
+        img{
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>문화재 상세</h1>
+    <form method="get">
+        <table>
+            <tbody id="demo">
+                <tr>
+                    <th>사진</th>
+                    <td id="img"></td>
+                </tr>
+                <tr>
+                    <th>번호</th>
+                    <td id="no"></td>
+                </tr>
+                <tr>
+                    <th>지정일</th>
+                    <td id="date"></td>
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td id="name"></td>
+                </tr>
+                <tr>
+                    <th>주소</th>
+                    <td id="address"></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td id="content"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    const no = document.querySelector("#no");
+    no.textContent = `${params.get('no')}`;
+    const name = document.querySelector("#name");
+    name.textContent = `${params.get('name')}`;
+    const content = document.querySelector("#content");
+    content.textContent = `${params.get('content')}`;
+    const img = document.querySelector("#img");
+    img.innerHTML = `<img src="${params.get('img')}" alt="">`;
+    const date = document.querySelector("#date");
+    date.textContent = `${params.get('date')}`
+    
+    const addressValue = params.get("address");
+    const address = document.querySelector("#address");
+
+    address.innerHTML = `${params.get('address')} <button type="button" id="map-btn">지도</button>`
+
+    const mapBtn = document.querySelector("#map-btn");
+
+
+    mapBtn.addEventListener("click", () => {
+
+        const xhttp = new XMLHttpRequest();
+
+        const url =
+            "https://dapi.kakao.com/v2/local/search/address.json?query="
+            + encodeURIComponent(addressValue);
+
+        xhttp.open("GET", url, true);
+
+        xhttp.setRequestHeader(
+            "Authorization",
+            "KakaoAK " + "027074c42b7b70bb7fe6440f39370ac6"
+        );
+
+        xhttp.onload = function() {
+
+            if(xhttp.status === 200) {
+
+                const data = JSON.parse(xhttp.responseText);
+
+                console.log(data);
+
+                if(data.documents.length > 0) {
+
+                    const longitude = data.documents[0].x;
+                    const latitude = data.documents[0].y;
+
+                    console.log("경도 :", longitude);
+                    console.log("위도 :", latitude);
+
+                    location.href =
+                        `ajax_map.html?lat=${latitude}&lng=${longitude}`;
+                }
+                else {
+                    alert("주소의 좌표를 찾을 수 없습니다.");
+                }
+            }
+        };
+
+        xhttp.send();
+    });
+</script>
+</html>
