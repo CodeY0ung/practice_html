@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 비동기 함수는 순서 보장이 안됨. -> 순서 보장때문에 callback을 썼음 -> callback hell 때문에 promise 객체 사용 -> 시간이 지나면서 fetch로 진화 -->
+<body>
+
+    <!-- http는 통신 프로토콜이다 전송에서 get 방식은 url에 자원을 넣어서 보낸다. post는 http body에 넣어서 보낸다.-->
+    <div id="demo">여기에 출력</div>
+    <button type="button" onclick="">버튼</button>
+    <script>
+        fetch("11_server_data_json.txt")
+            .then(response=>{
+                if(!response.ok){
+                    throw new Error("HTTP 오류 : ", response.status);
+                }
+                // json 데이터 다룰 때는 json함수 쓰면 됨.
+                return response.json();
+            })
+            .then(students =>{
+                students.forEach(student=>{
+                    console.log(student.name, student.score);
+                });
+            })
+            .catch(error=>{
+                console.log(error.message);
+            })
+    </script>
+</body>
+</html>

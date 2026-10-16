@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo">여기에 출력</div>
+    <button onclick="run()">실행</button>
+    <script>
+        function run(){
+            fetch('08_server_data.txt')
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error("HTTP 오류 : ", response.status);
+                    }
+                    // 일반 문자열 다룰때느 text함수 쓰면 됨.
+                    return response.text();
+                })
+                .then(data => {
+                    document.getElementById("demo").textContent = data;
+                    console.log(data);
+                })
+                .catch(error =>{
+                    console.log(error.message);
+                }
+            );
+        };
+
+    </script>
+</body>
+</html>
