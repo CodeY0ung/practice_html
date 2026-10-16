@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // promise 객체를 만들때 어떤 함수가 실행됨. resolve,reject 함수를 인자로 가짐. 원하는 결과가 나올때는 resolve, 반대는 reject. then은 result 뽑기. catch는 예외처리.
+    // 이걸로 어떻게 callback-hell을 해결할 수 있을까?? then에 callback함수 넣으면 되지않을까?
+    const promise = new Promise((resolve, rject)=>{
+        let x = 0;
+        if(x>0){
+            // result로 넘어갈 값.
+            resolve('성공....');
+        }
+        else{
+            reject('실패....');
+        }
+    });
+
+    // then에 callback함수 넣으면 됨. 그럼 정상흐름일때만 callback이 실행되니까.
+    // promise 1개에 then 여러개 쓸 수 있음. 순서를 보장할 수 있음. 
+    promise.then(result => {
+        console.log(result);
+    }).then()
+    .then()
+    .catch(err =>{
+        console.log(err);
+    });
+
+</script>
+</html>

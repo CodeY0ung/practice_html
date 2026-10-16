@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+</body>
+<script>
+
+    // 0: request not initialized
+    // 1: server connervion established
+    // 2: request received
+    // 3: processing request
+    // 4: reauest finished and response is ready
+
+    // status
+    // 200: "OK" ~ 299
+    // * Client Error Code : 400 ~ 499
+    // ...
+    // 403: "Forbidden"
+    // 404: "Page not found"
+    // ...
+    // * Server Error Code : 500 ~ 509
+    // 500: Internal Server Error
+
+    // AJAX가 비동기니까 promise로 동기처럼 실행해보자.
+    function loadDoc(){
+        return new Promise((resolve, reject)=>{
+        
+        const xhttp = new XMLHttpRequest();
+    
+        // target
+        xhttp.open("GET","08_server_data.txt",false);
+    
+        // 처리 방식
+        xhttp.onload = function(){
+            // 요청 성공 했을때만
+            if(xhttp.readyState==4 && xhttp.status==200){
+                document.getElementById("demo").innerHTML = xhttp.responseText;
+                resolve("성공");
+            }
+            else{
+                reject(("실패..."));
+            }
+        };
+        // 보내라
+        xhttp.send();
+        });  
+          
+    }
+    
+    loadDoc()
+    .then(result=>{
+        console.log(result);
+    }).catch(err=>{
+        console.log(err);
+    })
+
+</script>
+</html>

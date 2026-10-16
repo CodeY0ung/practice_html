@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getStudent(){
+        console.log('1. 학생 조회');
+    }
+    function getScore(){
+        console.log('2. 성적 조회');
+    }
+    function printResult(){
+        console.log('3. 결과 출력');
+    }
+
+    getStudent();
+    getScore();
+    printResult();
+
+    function getStudent2(){
+        return '홍길동';
+    }
+    function getScore2(name){
+        console.log(name+"의 성적을 조회합니다.");
+        return 90;
+    }
+    function printResult2(score){
+        console.log('점수 : ', score);
+    }
+
+    const name = getStudent2();
+    const score = getScore2(name);
+    printResult2(score);
+
+</script>
+</html>

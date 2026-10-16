@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // promise는 동기임. prpomise 안에서 실행되는 함수가 비동기인거지. 
+    Promise.resolve(10)
+    .then(result=>{
+        console.log("1단계 : ", result);
+        throw new Error("오류 발생...");
+    })
+    .then(result=>{
+        console.log("2단계 : ", result);
+    })
+    .catch(err=>{
+        console.log("오류처리", err.message);
+    })
+
+    // - resolve(value) : 성공 결과 전달
+    // - reject(reason) : 실패 이유 전달
+    // - then() : 성공 결과 처리 및 다음 단계 연결
+    // - catch() : 거부 또는 체이닝 과정의 오류 처리
+    // - return value : 다음 Promise의 결과 결정
+
+
+</script>
+</html>

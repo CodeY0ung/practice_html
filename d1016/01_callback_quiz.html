@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const nums = [1,2,3,4];
+
+    // callback 함수를 조건으로 둔 이유는 두개의 함수를 밀접하게 묶어버리겠다는 의지가 표명된다.
+    function f1(nums,callback){
+        const sum = nums.reduce((acc,n)=>{
+            return acc+n;
+        },0);
+        callback(sum);
+    }
+
+    function callback(num){
+        console.log(num)
+    }
+
+    f1(nums,callback);
+</script>
+</html>

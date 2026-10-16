@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // promise의 3가지 상태.. 시험에 나온다!
+    // pending
+    // fulfilled
+    // rejected
+    function loadData(){
+        return new Promise((resolve, reject)=>{
+            console.log('데이터 요청 시작...');
+
+            setTimeout(()=>{
+                // resolve('데이터 수신 완료!!!');
+                reject('데이터 수신 실패...');
+            },10000);
+        });
+    }
+
+    const promise = loadData();
+    promise.then(result=>{
+        console.log(result);
+    }).catch(err =>{
+        console.log(err);
+    })
+
+    // loadData().then(result =>{
+    //     console.log(result);
+    // });
+
+    console.log('다른 작업 실행...');
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 콜백은 비동기 함수들의 순서를 보장해서 동기식으로 처리하게끔 할 수 있다. 
+    function getStudent(callback){
+        setTimeout(()=>{
+            console.log('1. 학생 조치 완료');
+            callback();
+        },3000);
+    }
+
+    function getScore(callback){
+        setTimeout(()=>{
+            console.log('2. 성적 조회 완료');
+            callback();
+        },1000);
+    }
+
+    function printResult(){
+        console.log('3. 결과 출력');
+    }
+
+    // 이거는 왜 안될까... 매개변수가 호출문이라서 getScore먼저 호출되니까 2->3->1 순서네.
+    getStudent(getScore(printResult));
+    
+    // 
+    getStudent(()=>{
+        getScore(()=>{
+            printResult();
+        })
+    });
+
+</script>
+</html>

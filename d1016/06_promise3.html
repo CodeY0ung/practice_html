@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // promise chainning = then이 return을 하게되면 promise가 return된다.
+    Promise.resolve(10)
+    .then(result => {
+        console.log(result);
+        return result + 5;
+    })
+    .then(result =>{
+        console.log(result);
+        return result * 2;
+    })  
+    .then(result =>{
+        console.log(result);
+    });
+
+    // 이렇게하면 undefined가 나옴.. return이 없어서 다음 result에 들어갈 값이 없다.
+    Promise.resolve(10)
+    .then(result2 => {
+        console.log(result2);
+    })
+    .then(result2 =>{
+        console.log(result2);
+    });
+</script>
+</html>
