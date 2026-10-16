@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #board{
+            width: 600px;
+            height: 600px;
+            border: solid 1px black;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: repeat(3,1fr);
+        }
+        #board div{
+            border: 1px solid black;
+            text-align: center;
+            font-size: 100px;
+        }
+        body{
+            justify-items: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="board">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+<script>
+    const user = [];
+    const coms = [];
+
+    const cell = board.children;
+
+    for(let i = 0; i < cell.length; i++){
+
+        const row = Math.floor(i / 3);
+        const col = i % 3;
+
+        cell[i].dataset.row = row;
+        cell[i].dataset.col = col;
+    }
+
+
+    const winCases = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+
+
+    function checkWin(mark){
+
+        for(const win of winCases){
+
+            const a = win[0];
+            const b = win[1];
+            const c = win[2];
+
+            if(
+                cell[a].textContent === mark &&
+                cell[b].textContent === mark &&
+                cell[c].textContent === mark
+            ){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    board.addEventListener("click", function(e){
+
+        if(e.target.tagName === "DIV"){
+
+            e.target.textContent = "o";
+
+            const userPos = {
+                x: e.target.dataset.row,
+                y: e.target.dataset.col
+            };
+
+            user.push(userPos);
+
+
+            // 사용자 승리 확인
+            if(checkWin("o")){
+                alert("사용자 승리");
+                return;
+            }
+
+
+            setTimeout(() => {
+
+                let flag = true;
+
+                while(flag){
+
+                    let rdI = Math.floor(Math.random() * 9);
+
+                    if(cell[rdI].textContent === ""){
+
+                        flag = false;
+
+                        cell[rdI].textContent = "X";
+
+                        const comPos = {
+                            x: cell[rdI].dataset.row,
+                            y: cell[rdI].dataset.col
+                        };
+
+                        coms.push(comPos);
+
+
+                        // 컴퓨터 승리 확인
+                        if(checkWin("X")){
+                            alert("컴퓨터 승리");
+                            return;
+                        }
+                    }
+                }
+
+            }, 3000);
+        }
+    });
+
+
+
+    /*
+    2차원 배열로 게임판 구현. div에 data-row, data-col 값을 넣는다.
+    선공 정하기.
+    선공인 사람이 먼저 동작.
+    event bubbling으로 클릭 구현.
+    내가 1번 클릭하면 com이 1번 클릭한다.
+    com이 클릭하는 시간 간격은 setTimeout으로.
+    
+    ------ 제출 ------
+    form
+    URLHttpSearch로 받아오기
+    채점 방식 : 나,com 선택한 index의 list의 includes 함수를4번 사용해서 경우의 수 생성 및 점수 부여.
+    */
+
+   // 이벤트 객체 사용할 때, e.target.tagName =='TD' 
+   // tagname은 비교할때 반드시 대문자로 써야한다.
+</script>
+</html>
