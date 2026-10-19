@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num = 1;
+        function* sequence(){
+            while(true){
+                yield num++;
+            }
+        }
+
+        const seq = sequence();
+        console.log(seq.next());
+        console.log(seq.next());
+        console.log(seq.next());
+        console.log(seq.next());
+        console.log(seq.next());
+        console.log(seq.next());
+        console.log(seq.next());
+    </script>
+</body>
+</html>

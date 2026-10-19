@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fetch_run()">fetch_run</button>
+
+    <script>
+        function fetch_run(){
+            fetch("02_sample_data.txt")
+            .then(response=>{ // 응답 객체 처리
+                if(!response.ok) throw new Error("에러 발생!");
+                return response.json();
+            })
+            .then(result=>{ // 응답 객체에서 데이터 추출
+                console.log(result);
+            })
+            .catch(error=>{ // 데이터 처리
+                console.log(error);
+            })
+        }
+
+        async function async_await_run(){
+            // then 없이 바로 응답객체 획득
+            const response = await fetch("02_sample_data.txt");
+
+            if(!response.ok) throw new Error("에러 발생");
+            // then 없이 바로 data 획득
+            const result = await response.text();
+
+            console.log(result);
+        }
+    </script>
+</body>
+</html>
